@@ -1,0 +1,45 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "lux-form": {
+      "description": "Erstellt eine Formular-Component mit einer oder mehreren Spalten",
+      "factory": "./lux-form/index#luxForm",
+      "schema": "./lux-form/schema.json"
+    },
+    "lux-stepper": {
+      "description": "Erstellt eine Stepper-Component mit mehreren Steps",
+      "factory": "./lux-stepper/index#luxStepper",
+      "schema": "./lux-stepper/schema.json"
+    },
+    "lux-master-detail": {
+      "description": "Erstellt eine Master-Detail-Component",
+      "factory": "./lux-master-detail/index#luxMasterDetail",
+      "schema": "./lux-master-detail/schema.json"
+    },
+    "lux-tabs": {
+     "description": "Erstellt eine Tabs-Component",
+     "factory": "./lux-tabs/index#luxTabs",
+     "schema": "./lux-tabs/schema.json"
+    },
+    "lux-table": {
+      "description": "Erstellt eine Table-Component",
+      "factory": "./lux-table/index#luxTable",
+      "schema": "./lux-table/schema.json"
+    },
+    "lux-card": {
+      "description": "Erstellt eine Card-Component",
+      "factory": "./lux-card/index#luxCard",
+      "schema": "./lux-card/schema.json"
+    },
+    "lux-accordion": {
+      "description": "Erstellt eine Accordion-Component",
+      "factory": "./lux-accordion/index#luxAccordion",
+      "schema": "./lux-accordion/schema.json"
+    },
+    "lux-list": {
+      "description": "Erstellt eine List-Component",
+      "factory": "./lux-list/index#luxList",
+      "schema": "./lux-list/schema.json"
+    }
+  }
+}

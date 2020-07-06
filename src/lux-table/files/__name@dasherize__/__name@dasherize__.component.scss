@@ -1,0 +1,8 @@
+<% if(customCSSConfig == true) { %>
+::ng-deep .demo-pos-until-3 {
+    background: rgba(46, 84, 125, 0.5);
+}
+::ng-deep .demo-pos-above-5 {
+    background: rgba(209, 174, 194, 0.5);
+}
+<% } %>

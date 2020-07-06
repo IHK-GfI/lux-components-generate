@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "LUX-Tabs-Schema",
+  "title": "LUX-Tabs Component Options Schema",
+  "type": "object",
+  "description": "Erstellt eine neue generische Tabs-Komponente.",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Name des Angular-Projekts.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "visible": false
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "Der Pfad, in dem die Component erstellt werden soll.",
+      "visible": false
+    },
+    "name": {
+      "type": "string",
+      "description": "Name der zu erstellenden Component.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Geben Sie einen Namen für die neue Component ein:"
+    },
+    "shorthandSymbol": {
+      "type": "string",
+      "description": "Das Kürzel des Projekts.",
+      "default": "app",
+      "x-prompt": "Geben Sie den Kürzel ihres Projekts ein (z.B. 'lux' für LuxComponents):"
+    },
+    "otherSchematics": {
+      "type": "array",
+      "description": "Aktiviert die Generierung zusätzlicher LUX-Components in die Tabs.",
+      "default": ["text"],
+      "x-prompt": {
+        "message": "Wie möchten Sie die Tabs befüllen?",
+        "type": "list",
+        "multiselect": true,
+        "items": [
+          { "value": "text", "label": "einfacher Textinhalt" },
+          { "value": "accordion", "label": "lux-accordion" },
+          { "value": "card", "label": "lux-card" },
+          { "value": "form", "label": "lux-form" },
+          { "value": "table", "label": "lux-table" },
+          { "value": "list", "label": "lux-list" }
+        ]
+      }
+    },
+    "counterVisible": {
+      "type": "boolean",
+      "description": "Flag für einen optionalen Counter, welcher rechts vom Text im Tab angezeigt wird.",
+      "default": false,
+      "x-prompt": "Soll ein Counter, welcher rechts vom Text im Tab angezeigt wird, erstellt werden?"
+    },
+    "createStylesheet": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung der Stylesheet-Datei (.scss) für die Component.",
+      "default": true,
+      "x-prompt": "Soll ein Stylesheet (.scss) für die Component angelegt werden?"
+    },
+    "createTests": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung der Testdatei (.spec) für die Component.",
+      "default": true,
+      "x-prompt": "Soll eine Testdatei (.spec) für die Component angelegt werden?"
+    },
+    "importToNgModule": {
+      "type": "boolean",
+      "description": "Aktiviert den automatischen Import der Component in das NgModule.",
+      "default": true,
+      "x-prompt": "Soll der Import in das zugehörige NgModule erfolgen?"
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}

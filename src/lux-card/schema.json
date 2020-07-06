@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "LUX-Card-Schema",
+  "title": "LUX-Card Component Options Schema",
+  "type": "object",
+  "description": "Erstellt eine neue generische Card-Komponente.",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Name des Angular-Projekts.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "visible": false
+    },    
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "Der Pfad, in dem die Component erstellt werden soll.",
+      "visible": false
+    },
+    "name": {
+      "type": "string",
+      "description": "Name der zu erstellenden Component.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Geben Sie einen Namen für die neue Component ein:"
+    },
+    "shorthandSymbol": {
+      "type": "string",
+      "description": "Das Kürzel des Projekts",
+      "default": "app",
+      "x-prompt": "Geben Sie den Kürzel ihres Projekts ein (z.B. 'lux' für LuxComponents):"
+    },
+    "typeOfCard": {
+      "type": "string",
+      "description": "Die Art einer Card.",
+      "default": "simple",
+      "x-prompt": {
+        "message": "Wählen Sie aus, wie die Card aufgebaut werden soll:",
+        "type": "list",
+        "items": [
+          { "value": "simple", "label": "Eine einfache Card" },
+          { "value": "expended", "label": "Eine Card mit erweiterten Inhalt" }
+        ]
+      }
+    },
+    "createCardActions": {
+        "type": "boolean",
+        "description": "Aktiviert die Generierung einer Card mit Aktions.",
+        "default": true,
+        "x-prompt": "Soll ein Aktions-Bereich angelegt werden?"
+    },
+    "createStylesheet": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung der Stylesheet-Datei (.scss) für die Component.",
+      "default": true,
+      "x-prompt": "Soll ein Stylesheet (.scss) für die Component angelegt werden?"
+    },
+    "createTests": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung der Testdatei (.spec) für die Component.",
+      "default": true,
+      "x-prompt":  "Soll eine Testdatei (.spec) für die Component angelegt werden?"
+    },
+    "importToNgModule": {
+      "type": "boolean",
+      "description": "Aktiviert den automatischen Import der Component in das NgModule.",
+      "default": true,
+      "x-prompt": "Soll der Import in das zugehörige NgModule erfolgen?"
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}

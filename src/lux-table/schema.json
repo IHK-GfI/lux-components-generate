@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "LUX-Table-Schema",
+  "title": "LUX-Table Component Options Schema",
+  "type": "object",
+  "description": "Erstellt eine neue generische Table-Komponente nach Benutzereingaben.",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Name des Angular-Projekts.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "visible": false
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "Der Pfad, in dem die Component erstellt werden soll.",
+      "visible": false
+    },
+    "name": {
+      "type": "string",
+      "description": "Name der zu erstellenden Component.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Geben Sie einen Namen für die neue Component ein:"
+    },
+    "shorthandSymbol": {
+      "type": "string",
+      "description": "Das Kürzel des Projekts.",
+      "default": "app",
+      "x-prompt": "Geben Sie den Kürzel ihres Projekts ein (z.B. 'lux' für LuxComponents):"
+    },
+    "numberOfColumns": {
+      "type": "string",
+      "description": "Anzahl der Spalten, die erstellt werden soll.",
+      "default": "3",
+      "x-prompt": "Wie viele Spalten soll die Tabelle erhalten?"
+    },
+    "showPagination": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung einer Pagination.",
+      "default": true,
+      "x-prompt": "Soll eine Pagination für die Tabelle angezeigt werden?"
+    },
+    "showFilter": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung eines Filters.",
+      "default": true,
+      "x-prompt": "Soll ein Filter für die Tabelle angezeigt werden?"
+    },
+    "customCSSConfig": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung einer Beispiel-CSS-Klasse.",
+      "default": false,
+      "x-prompt": "Soll eine Beispiel-CSS-Klasse für die Tabelle erstellt werden?"
+    },
+    "multiSelect": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung einer Multiselect-Tabelle",
+      "default": false,
+      "x-prompt": "Soll eine Multiselect Tabelle generiert werden?"
+    },
+    "asyncData": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung einer Tabelle mit serverseitigen Daten.",
+      "default": false,
+      "x-prompt": "Soll die Daten der Tabelle serverseitig geladen werden?"
+    },
+    "createStylesheet": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung der Stylesheet-Datei (.scss) für die Component.",
+      "default": true,
+      "x-prompt": "Soll ein Stylesheet (.scss) für die Component angelegt werden?"
+    },
+    "createTests": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung der Testdatei (.spec) für die Component.",
+      "default": true,
+      "x-prompt": "Soll eine Testdatei (.spec) für die Component angelegt werden?"
+    },
+    "importToNgModule": {
+      "type": "boolean",
+      "description": "Aktiviert den automatischen Import der Component in das NgModule.",
+      "default": true,
+      "x-prompt": "Soll der Import in das zugehörige NgModule erfolgen?"
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}

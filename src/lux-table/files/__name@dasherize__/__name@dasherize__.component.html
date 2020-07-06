@@ -1,0 +1,29 @@
+<div flex="1 1 auto">
+    <lux-table <% if (asyncData == false) { %> [luxData]="dataSource" <% } else { %> [luxHttpDAO]="httpDAO" <% } %>
+    <% if (showPagination == true) { %>
+        [luxShowPagination]="true" [luxPageSize]="5" [luxPageSizeOptions]="[5, 10, 20, 50, 100]"
+    <% } %> <% if (showFilter == true) { %>
+        [luxShowFilter]="true"  luxFilterText="Filter hier eingeben"
+    <% } %> <% if (multiSelect == true) { %>
+        [luxMultiSelect]="true" (luxSelectedChange)="onSelectedChange($event)"
+    <% } %> <% if (customCSSConfig == true) { %>
+        [luxClasses]="tableCSS"
+    <% } %>
+        luxNoDataText="Keine Daten vorhanden" [luxHideBorders]="false"
+    >
+    <% for (let i=1; i<=numberOfColumns; i++) { %>
+        <lux-table-column luxColumnDef="Attribut #<%= i %>" [luxSortable]="false">
+            <lux-table-column-header>
+                <ng-template> Spalte #<%= i %>-Header </ng-template>
+            </lux-table-column-header>
+            <lux-table-column-content>
+                    <ng-template let-element> {{ element.label }} </ng-template>
+            </lux-table-column-content>
+            <lux-table-column-footer>
+                <ng-template> Spalte #<%= i %>-Footer </ng-template>
+            </lux-table-column-footer>
+        </lux-table-column>
+    <% } %>
+
+    </lux-table>
+</div>

@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "LUX-Master-Detail-Schema",
+  "title": "LUX-Master-Detail Component Options Schema",
+  "type": "object",
+  "description": "Erstellt eine neue generische Master-Detail-Komponente mit Benutzer-Eingaben oder ein Standard-Master-Detail.",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Name des Angular-Projekts.",
+      "$default": {
+        "$source": "projectName"
+      },
+      "visible": false
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "Der Pfad, in dem die Component erstellt werden soll.",
+      "visible": false
+    },
+    "name": {
+      "type": "string",
+      "description": "Name der zu erstellenden Component.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Geben Sie einen Namen für die neue Component ein:"
+    },
+    "shorthandSymbol": {
+      "type": "string",
+      "description": "Das Kürzel des Projekts.",
+      "default": "app",
+      "x-prompt": "Geben Sie den Kürzel ihres Projekts ein (z.B. 'lux' für LuxComponents):"
+    },
+    "createWithFilter": {
+      "type": "boolean",
+      "description": "Ermöglicht die Generierung eines Filters für die Master-Items.",
+      "default": false,
+      "x-prompt": "Soll ein Filter für die Master-Items generiert werden?"
+    },
+    "createStylesheet": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung der Stylesheet-Datei (.scss) für die Component.",
+      "default": true,
+      "x-prompt": "Soll ein Stylesheet (.scss) für die Component angelegt werden?"
+    },
+    "createTests": {
+      "type": "boolean",
+      "description": "Aktiviert die Generierung der Testdatei (.spec) für die Component.",
+      "default": true,
+      "x-prompt": "Soll eine Testdatei (.spec) für die Component angelegt werden?"
+    },
+    "importToNgModule": {
+      "type": "boolean",
+      "description": "Aktiviert den automatischen Import der Component in das NgModule.",
+      "default": true,
+      "x-prompt": "Soll der Import in das zugehörige NgModule erfolgen?"
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}

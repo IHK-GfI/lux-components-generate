@@ -1,0 +1,21 @@
+<% if(soloPanel == false) { %>
+<lux-accordion [luxMulti]="true">
+<% } %>
+  <lux-panel (luxOpened)="luxOpened()" (luxClosed)="luxClosed()">
+    <lux-panel-header-title>
+      Titel
+    </lux-panel-header-title>
+    <lux-panel-header-description>
+      Beschreibung
+    </lux-panel-header-description>
+    <lux-panel-content>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et 
+      dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    </lux-panel-content>
+    <lux-panel-action>
+      <lux-button luxLabel="Button" luxColor="warn" [luxRaised]="true" (luxClicked)="onButtonClicked()"></lux-button>
+    </lux-panel-action>
+  </lux-panel>
+<% if(soloPanel == false) { %>
+</lux-accordion>
+<% } %>

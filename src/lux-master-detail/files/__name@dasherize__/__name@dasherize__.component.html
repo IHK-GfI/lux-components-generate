@@ -1,0 +1,50 @@
+<lux-master-detail
+  luxEmptyIconMaster="fas fa-times"
+  luxEmptyIconMasterSize="5x"
+  luxEmptyLabelMaster="Keine Masterelemente gefunden!"
+  luxEmptyIconDetail="fas fa-times"
+  luxEmptyIconDetailSize="5x"
+  luxEmptyLabelDetail="Kein Detail selektiert!"
+  [luxMasterIsLoading]="masterIsLoading"
+  [luxSelectedDetail]="masterSelected"
+  [(luxMasterList)]="masterItems"
+  (luxSelectedDetailChange)="loadDetail($event)"
+  (luxScrolled)="loadFurtherEntries($event)"
+  luxTagIdMaster="masterTagId"
+  luxTagIdDetail="detailTagId" 
+  fxFill>
+
+  <lux-master-header-content>
+<% if (createWithFilter == true) { %>
+    <lux-select luxLabel="Ein Filter" [luxOptions]="options" [luxSelected]="options[0]" luxOptionLabelProp="label" (luxSelectedChange)="changeFilter($event)"></lux-select>
+<% } else { %>
+    <h2>Master Header</h2>
+<% } %>
+  </lux-master-header-content>
+
+  <lux-master-simple luxTitleProp="title" luxSubTitleProp="subtitle">
+    <!-- Zugriff auf jedes einzelne Master-Element ueber "master" -->
+    <ng-template #luxSimpleIcon let-master>
+      <lux-icon [luxIconName]="master.icon"></lux-icon>
+    </ng-template>
+    <ng-template #luxSimpleContent let-master>
+      {{ master.content }}
+    </ng-template>
+  </lux-master-simple>
+
+  <lux-detail-view>
+    <!-- Zugriff auf das aktuell selektierte Element ueber "detail" -->
+    <ng-template let-detail>
+      <lux-card [luxTitle]="detail.title">
+        <lux-card-content>
+          <p>{{ detail.content }}</p>
+        </lux-card-content>
+      </lux-card>
+    </ng-template>
+  </lux-detail-view>
+
+  <lux-master-footer>
+    <h2>Master Footer</h2>
+  </lux-master-footer>
+
+</lux-master-detail>

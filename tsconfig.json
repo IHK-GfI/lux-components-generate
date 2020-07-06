@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": "tslint.json",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
+    "rootDir": "src/",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es6",
+    "types": [
+      "jasmine",
+      "node"
+    ],
+    "allowUnusedLabels": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/*/files/**/*"
+  ]
+}

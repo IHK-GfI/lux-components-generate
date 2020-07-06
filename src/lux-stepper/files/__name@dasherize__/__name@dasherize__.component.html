@@ -1,0 +1,28 @@
+<lux-stepper [luxHorizontalStepAnimationActive]="true" [luxLinear]="false"
+<% if (createVerticalStepper == true) { %>     
+  [luxVerticalStepper]="true"
+<% } %> <% if (navigationType == "inside") { %>     
+  [luxPreviousButtonConfig]="stepperPreviousButtonConfig"
+  [luxNextButtonConfig]="stepperNextButtonConfig"
+  [luxFinishButtonConfig]="stepperFinishButtonConfig"
+  (luxFinishButtonClicked)="onSave()"
+<% } else { %>
+  [luxShowNavigationButtons]="false"
+  (luxStepChanged)="onStepChanged($event)"
+<% } %>
+>
+<% for (let i=1; i<=numberOfSteps; i++) { %>
+  <lux-step [luxStepControl]="formGroup0<%= i %>">
+    <lux-step-header>
+      Testheader <%= i %>
+    </lux-step-header>
+    <lux-step-content [formGroup]="formGroup0<%= i %>">
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      </p>
+    </lux-step-content>
+  </lux-step>
+<% } %> 
+
+</lux-stepper>
