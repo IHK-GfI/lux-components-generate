@@ -1,5 +1,5 @@
 {
-  "name": "lux-components-generate",
+  "name": "@ihk-gfi/lux-components-generate",
   "version": "1.9.0",
   "description": "Schematics für die Generierung von LUX-Components und formatierten Layouts",
   "scripts": {
@@ -12,6 +12,21 @@
     "blueprint"
   ],
   "license": "IHK-GfI Open-Source-Lizenz",
+  "files": [
+    "src/**/*",
+    "LICENSE",
+    "package.json",
+    "README.md",
+    "tsconfig.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IHK-GfI/lux-components-generate.git"
+  },
+  "homepage": "https://github.com/IHK-GfI/lux-components-generate",
+  "bugs": {
+    "url": "https://github.com/IHK-GfI/lux-components-generate/issues"
+  },
   "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/core": "7.3.5",
