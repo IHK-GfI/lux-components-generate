@@ -1,6 +1,6 @@
 {
   "name": "@ihk-gfi/lux-components-generate",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Schematics für die Generierung von LUX-Components und formatierten Layouts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -28,23 +28,20 @@
     "url": "https://github.com/IHK-GfI/lux-components-generate/issues"
   },
   "schematics": "./src/collection.json",
+  "devDependencies": {
+    "prettier": "2.0.5"
+  },
   "dependencies": {
-    "@angular-devkit/core": "7.3.5",
-    "@angular-devkit/schematics": "7.3.5",
-    "@angular/cli": "7.3.5",
-    "@types/jasmine": "2.8.16",
-    "@types/node": "8.10.43",
-    "@types/semver": "5.5.0",
-    "@types/shelljs": "0.8.3",
-    "chalk": "2.4.2",
-    "cheerio": "1.0.0-rc.2",
-    "htmlparser2": "3.10.1",
-    "jasmine": "2.99.0",
-    "semver": "5.6.0",
-    "shelljs": "0.8.3",
-    "typescript": "3.3.3333"
+    "@angular-devkit/core": "9.1.10",
+    "@angular-devkit/schematics": "9.1.10",
+    "@schematics/angular": "9.1.10",
+    "@types/jasmine": "3.5.11",
+    "@types/node": "13.7.7",
+    "jasmine": "3.5.0",
+    "typescript": "3.7.5",
+    "rxjs": "6.5.4"
   },
   "optionalDependencies": {
-    "fsevents": "2.1.2"
+    "fsevents": "2.1.3"
   }
 }

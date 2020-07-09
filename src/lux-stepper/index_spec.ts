@@ -1,167 +1,134 @@
-import { callRule, SchematicContext } from '@angular-devkit/schematics';
-import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
+import { callRule } from '@angular-devkit/schematics';
 import * as path from 'path';
-import { appOptions, workspaceOptions } from '../utility/test-helper';
+import { TestHelper } from '../utility/test-helper';
 import { luxStepper } from './index';
-import { of as observableOf, EMPTY } from 'rxjs';
+import { of as observableOf } from 'rxjs';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
 describe('lux-stepper', () => {
+  const defaultOptions: any = {
+    project: 'bar',
+    name: 'test',
+    createTests: false,
+    createStylesheet: false,
+    createVerticalStepper: false,
+    importToNgModule: false,
+    numberOfSteps: 3,
+    navigationType: 'inside'
+  };
 
-    let appTree: UnitTestTree;
-    let runner: SchematicTestRunner;
-    let context: SchematicContext;
-    
-    const defaultOptions: any = {
-        project: 'bar',
-        // path: '/projects/bar',
-        name: 'test',
-        createTests: false,
-        createStylesheet: false,
-        createVerticalStepper: false,
-        importToNgModule: false,
-        numberOfSteps: 3,    
-        navigationType: 'inside'
-    };
+  const schematicsFunction = luxStepper;
+  const testHelper = new TestHelper();
 
-    beforeEach(() => {
-        runner = new SchematicTestRunner('schematics', collectionPath);
+  beforeEach(async () => {
+    await testHelper.init('lux-stepper', collectionPath);
+  });
 
-        appTree = runner.runExternalSchematic(
-            '@schematics/angular', 'workspace', workspaceOptions);
-        appTree = runner.runExternalSchematic(
-            '@schematics/angular', 'application', appOptions, appTree);
-
-        const collection = runner.engine.createCollection(collectionPath);
-        const schematic = runner.engine.createSchematic('lux-stepper', collection);
-        context = runner.engine.createContext(schematic);
+  describe('schema.createTests', () => {
+    it('Sollte .spec.ts generieren (true)', () => {
+      testHelper.testSpecTrue(schematicsFunction, defaultOptions);
     });
 
-    describe('schema.createTests', () => {
-        const testOptions = { ...defaultOptions };
+    it('Sollte .spec.ts generieren (false)', () => {
+      testHelper.testSpecFalse(schematicsFunction, defaultOptions);
+    });
+  });
 
-        it('Sollte keine .spec generieren', (async (done) => {
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                expect(appTree.files).not.toContain('/projects/bar/src/app/test/test.component.spec.ts');
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
-
-        it('Sollte die .spec generieren', (async (done) => {
-            testOptions.createTests = true;
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                expect(appTree.files).toContain('/projects/bar/src/app/test/test.component.spec.ts');
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
+  describe('schema.createStylesheet', () => {
+    it('Sollte .scss generieren (true)', () => {
+      testHelper.testScssTrue(schematicsFunction, defaultOptions);
     });
 
-    describe('schema.createStylesheet', () => {
-        const testOptions = { ...defaultOptions };
+    it('Sollte .scss generieren (false)', () => {
+      testHelper.testScssFalse(schematicsFunction, defaultOptions);
+    });
+  });
 
-        it('Sollte kein Stylesheet generieren', (async (done) => {
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                const tsContent = appTree.readContent('/projects/bar/src/app/test/test.component.ts');
-                expect(tsContent).not.toContain('styleUrls: [\'./test.component.scss\'],');
-                expect(appTree.files).not.toContain('/projects/bar/src/app/test/test.component.scss');
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
-
-        it('Sollte die .scss generieren', (async (done) => {
-            testOptions.createStylesheet = true;
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                const tsContent = appTree.readContent('/projects/bar/src/app/test/test.component.ts');
-                expect(tsContent).toContain('styleUrls: [\'./test.component.scss\'],');
-                expect(appTree.files).toContain('/projects/bar/src/app/test/test.component.scss');
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
+  describe('schema.importToNgModule', () => {
+    it('Sollte den Import in das Module einfügen (true)', () => {
+      testHelper.testImportTrue(schematicsFunction, defaultOptions);
     });
 
-    describe('schema.importToNgModule', () => {
-        const testOptions = { ...defaultOptions };
+    it('Sollte den Import in das Module einfügen (false)', () => {
+      testHelper.testImportFalse(schematicsFunction, defaultOptions);
+    });
+  });
 
-        it('Sollte kein Import in das NgModule erfolgen', (async (done) => {
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                const moduleContent = appTree.readContent('/projects/bar/src/app/app.module.ts');
-                expect(moduleContent).not.toMatch(/import.*Test.*from '.\/test\/test.component'/);
-                expect(moduleContent).not.toMatch(/declarations:\s*\[[^\]]+?,\r?\n\s+TestComponent\r?\n/m);
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
+  describe('schema.createVerticalStepper', () => {
+    it('Sollte ein horizontalen Stepper generieren', () => {
+      const testOptions = { ...defaultOptions };
+      testOptions.createVerticalStepper = false;
 
-        it('Sollte ein Import in das NgModule erfolgen', (async (done) => {
-            testOptions.importToNgModule = true;
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                const moduleContent = appTree.readContent('/projects/bar/src/app/app.module.ts');
-                expect(moduleContent).toMatch(/import.*Test.*from '.\/test\/test.component'/);
-                expect(moduleContent).toMatch(/declarations:\s*\[[^\]]+?,\r?\n\s+TestComponent\r?\n/m);
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
+      callRule(luxStepper(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+        () => {
+          const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
+          expect(htmlContent.trim()).not.toContain('[luxVerticalStepper]="true"');
+        },
+        (reason) => expect(reason).toBeUndefined()
+      );
     });
 
-    describe('schema.createVerticalStepper', () => {
-        const testOptions = { ...defaultOptions };
+    it('Sollte ein vertikalen Stepper generieren', () => {
+      const testOptions = { ...defaultOptions };
+      testOptions.createVerticalStepper = true;
 
-        it('Sollte ein horizontalen Stepper generieren', (async (done) => {
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                const htmlContent = appTree.readContent('/projects/bar/src/app/test/test.component.html');
-                expect(htmlContent.trim()).not.toContain('[luxVerticalStepper]="true"');
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
+      callRule(luxStepper(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+        () => {
+          const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
+          expect(htmlContent.trim()).toContain('[luxVerticalStepper]="true"');
+        },
+        (reason) => expect(reason).toBeUndefined()
+      );
+    });
+  });
 
-        it('Sollte ein vertikalen Stepper generieren', (async (done) => {
-            testOptions.createVerticalStepper = true;
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                const htmlContent = appTree.readContent('/projects/bar/src/app/test/test.component.html');
-                expect(htmlContent.trim()).toContain('[luxVerticalStepper]="true"');
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
+  describe('schema.navigationType', () => {
+    it('Sollte die Navigation innerhalb des Steppers generieren', () => {
+      const testOptions = { ...defaultOptions };
+
+      callRule(luxStepper(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+        () => {
+          const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
+          expect(htmlContent.trim()).toContain('[luxPreviousButtonConfig]="stepperPreviousButtonConfig"');
+          expect(htmlContent.trim()).toContain('[luxNextButtonConfig]="stepperNextButtonConfig"');
+          expect(htmlContent.trim()).toContain('[luxFinishButtonConfig]="stepperFinishButtonConfig"');
+
+          const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
+          expect(tsContent.trim()).toContain("import { ILuxStepperButtonConfig } from '@ihk-gfi/lux-components';");
+        },
+        (reason) => expect(reason).toBeUndefined()
+      );
     });
 
-    describe('schema.navigationType', () => {
-        const testOptions = { ...defaultOptions };
+    it('Sollte die Navigation außerhalb des Steppers generieren', () => {
+      const testOptions = { ...defaultOptions };
+      testOptions.navigationType = 'outside';
 
-        it('Sollte die Navigation innerhalb des Steppers generieren', (async (done) => {
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                const htmlContent = appTree.readContent('/projects/bar/src/app/test/test.component.html');
-                expect(htmlContent.trim()).toContain('[luxPreviousButtonConfig]="stepperPreviousButtonConfig"');
-                expect(htmlContent.trim()).toContain('[luxNextButtonConfig]="stepperNextButtonConfig"');
-                expect(htmlContent.trim()).toContain('[luxFinishButtonConfig]="stepperFinishButtonConfig"');
+      callRule(luxStepper(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+        () => {
+          const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
 
-                const tsContent = appTree.readContent('/projects/bar/src/app/test/test.component.ts');
-                expect(tsContent.trim()).toContain('import { ILuxStepperButtonConfig } from \'@ihk-gfi/lux-components\';');
+          expect(htmlContent.trim()).toContain('[luxShowNavigationButtons]="false"');
+          expect(htmlContent.trim()).toContain('(luxStepChanged)="onStepChanged($event)"');
 
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
+          const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
 
-        it('Sollte die Navigation außerhalb des Steppers generieren', (async (done) => {
-            testOptions.navigationType = 'outside';
-            callRule(luxStepper(testOptions), observableOf(appTree), context).subscribe(() => {
-                const htmlContent = appTree.readContent('/projects/bar/src/app/test/test.component.html');
-                
-                expect(htmlContent.trim()).toContain('[luxShowNavigationButtons]="false"');
-                expect(htmlContent.trim()).toContain('(luxStepChanged)="onStepChanged($event)"');
+          expect(tsContent.trim()).toContain(
+            "import { LuxAppFooterButtonInfo, LuxAppFooterButtonService, LuxStepperHelperService } from '@ihk-gfi/lux-components';"
+          );
+          expect(tsContent.trim()).toContain("import { StepperSelectionEvent } from '@angular/cdk/stepper';");
 
-                const tsContent = appTree.readContent('/projects/bar/src/app/test/test.component.ts');
+          expect(tsContent.trim()).toContain('btnPrev = LuxAppFooterButtonInfo.generateInfo({');
+          expect(tsContent.trim()).toContain('btnNext = LuxAppFooterButtonInfo.generateInfo({');
+          expect(tsContent.trim()).toContain('btnFin = LuxAppFooterButtonInfo.generateInfo({');
 
-                expect(tsContent.trim()).toContain('import { LuxAppFooterButtonInfo, LuxAppFooterButtonService, LuxStepperHelperService } from \'@ihk-gfi/lux-components\';');
-                expect(tsContent.trim()).toContain('import { StepperSelectionEvent } from \'@angular/cdk/stepper\';');
-
-                expect(tsContent.trim()).toContain('btnPrev = LuxAppFooterButtonInfo.generateInfo({');
-                expect(tsContent.trim()).toContain('btnNext = LuxAppFooterButtonInfo.generateInfo({');
-                expect(tsContent.trim()).toContain('btnFin = LuxAppFooterButtonInfo.generateInfo({');
-
-                expect(tsContent.trim()).toContain('constructor(private fb: FormBuilder, private buttonService: LuxAppFooterButtonService, private stepperService: LuxStepperHelperService) {');
-
-                done();
-            }, (reason) => expect(reason).toBeUndefined());
-        }));
+          expect(tsContent.trim()).toContain(
+            'constructor(private fb: FormBuilder, private buttonService: LuxAppFooterButtonService, private stepperService: LuxStepperHelperService) {'
+          );
+        },
+        (reason) => expect(reason).toBeUndefined()
+      );
     });
+  });
 });

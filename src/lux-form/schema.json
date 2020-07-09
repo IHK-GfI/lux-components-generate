@@ -48,19 +48,19 @@
         ]
       }
     },
-    "formControls":{
-      "type":"array",
+    "formControls": {
+      "type": "array",
       "description": "Aktiviert die Generierung der Beispiel-Components für das Formular.",
       "default": ["input", "datepicker", "checkbox", "select"],
       "x-prompt": {
-       "message": "Wie soll das Formular befüllt werden?",
-       "type": "list",
-       "multiselect": true,
-       "items": [
+        "message": "Wie soll das Formular befüllt werden?",
+        "type": "list",
+        "multiselect": true,
+        "items": [
           { "value": "input", "label": "lux-input" },
           { "value": "datepicker", "label": "lux-datepicker" },
           { "value": "checkbox", "label": "lux-checkbox" },
-          { "value": "radio", "label": "lux-radio"},
+          { "value": "radio", "label": "lux-radio" },
           { "value": "select", "label": "lux-select" },
           { "value": "toogle", "label": "lux-toogle" },
           { "value": "chips", "label": "lux-chips" },

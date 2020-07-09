@@ -1,13 +1,13 @@
-import { Tree } from "@angular-devkit/schematics";
-import { parseName } from "@schematics/angular/utility/parse-name";
-import { buildDefaultPath, getProject } from "@schematics/angular/utility/project";
-import { validateName, validateProjectName } from "./validation";
+import { Tree } from '@angular-devkit/schematics';
+import { parseName } from '@schematics/angular/utility/parse-name';
+import { buildDefaultPath, getProject } from '@schematics/angular/utility/project';
+import { validateName, validateProjectName } from './validation';
 
 /**
  * Prüft, ob die Property "path" gesetzt ist und
  * erstellt wenn nötig einen Standard-Pfad zum Projekt, wenn keiner bekannt ist.
- * @param tree 
- * @param options 
+ * @param tree
+ * @param options
  */
 export function setupOptions(tree: Tree, options: any): Tree {
   validateProjectName(options.project);
