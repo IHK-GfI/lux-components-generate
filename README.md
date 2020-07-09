@@ -1,5 +1,6 @@
 ## Autoren
 - Ahmet Erinola (IHK-GfI)
+- Thomas Dickhut (IHK-GfI)
 
 # Generierung von Lux-Components mithilfe von Angular Schematics
 
@@ -21,12 +22,12 @@ Bereits vorhandene Generatoren
 Aktuelle Version installieren:
 
 ```bash
-npm install lux-components-generate@latest --save-dev
+npm install @ihk-gfi/lux-components-generate@latest --save-dev
 ```
 Spezielle Version installieren:
 
 ```bash
-npm install --save lux-components-generate@0.0.1
+npm install --save @ihk-gfi/lux-components-generate@0.0.1
 ```
 
 ## Ausführen eines Schematic-Scripts
@@ -36,7 +37,7 @@ npm install --save lux-components-generate@0.0.1
 Eine Schematic wird über den folgendeng Aufruf gestartet:
 
 ```bash
-ng generate lux-components-generator:lux-xyz
+ng generate @ihk-gfi/lux-components-generate:lux-xyz
 ```
 
 ** Zum lokalen Testen **
@@ -56,6 +57,6 @@ npm link <PFAD-ZUM-LOKALEN-SCHEMATICS-PROJEKT>
 Das Starten des Schematic-Scripts aus dem Testprojekt erfolgt dann wie gehabt:
 
 ```bash
-ng generate lux-components-generate:lux-xyz
+ng generate @ihk-gfi/lux-components-generate:lux-xyz
 ```
 

@@ -17,9 +17,9 @@
       "schema": "./lux-master-detail/schema.json"
     },
     "lux-tabs": {
-     "description": "Erstellt eine Tabs-Component",
-     "factory": "./lux-tabs/index#luxTabs",
-     "schema": "./lux-tabs/schema.json"
+      "description": "Erstellt eine Tabs-Component",
+      "factory": "./lux-tabs/index#luxTabs",
+      "schema": "./lux-tabs/schema.json"
     },
     "lux-table": {
       "description": "Erstellt eine Table-Component",

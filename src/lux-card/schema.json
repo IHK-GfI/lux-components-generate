@@ -12,7 +12,7 @@
         "$source": "projectName"
       },
       "visible": false
-    },    
+    },
     "path": {
       "type": "string",
       "format": "path",
@@ -48,10 +48,10 @@
       }
     },
     "createCardActions": {
-        "type": "boolean",
-        "description": "Aktiviert die Generierung einer Card mit Aktions.",
-        "default": true,
-        "x-prompt": "Soll ein Aktions-Bereich angelegt werden?"
+      "type": "boolean",
+      "description": "Aktiviert die Generierung einer Card mit Aktions.",
+      "default": true,
+      "x-prompt": "Soll ein Aktions-Bereich angelegt werden?"
     },
     "createStylesheet": {
       "type": "boolean",
@@ -63,7 +63,7 @@
       "type": "boolean",
       "description": "Aktiviert die Generierung der Testdatei (.spec) für die Component.",
       "default": true,
-      "x-prompt":  "Soll eine Testdatei (.spec) für die Component angelegt werden?"
+      "x-prompt": "Soll eine Testdatei (.spec) für die Component angelegt werden?"
     },
     "importToNgModule": {
       "type": "boolean",
