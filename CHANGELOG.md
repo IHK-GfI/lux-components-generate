@@ -1,3 +1,6 @@
+## Version 10.0.0
+- Update auf Angular 10.
+
 ## Version 1.9.1
 - Update auf  Angular Schematics 9.1.10 inklusive aller Abhängigkeiten. 
 - Überarbeitung aller Tests. 
