@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 <% if (navigationType == "inside") { %>import { ILuxStepperButtonConfig } from '@ihk-gfi/lux-components';<% } else { %>
 import { LuxAppFooterButtonInfo, LuxAppFooterButtonService, LuxStepperHelperService } from '@ihk-gfi/lux-components';
@@ -10,7 +10,7 @@ import { StepperSelectionEvent } from '@angular/cdk/stepper';
   styleUrls: ['./<%= dasherize(name) %>.component.scss'],<% } %>
   templateUrl: './<%= dasherize(name) %>.component.html',
 })
-export class <%= classify(name) %>Component implements OnInit<% if (navigationType == "outside") { %>, OnDestroy<% }%> {
+export class <%= classify(name) %>Component <% if (navigationType == "outside") { %> implements OnDestroy<% }%> {
     
 <% for (let i=1; i<=numberOfSteps; i++) { %>
     formGroup0<%= i %>: FormGroup;<% } %>
@@ -64,10 +64,6 @@ export class <%= classify(name) %>Component implements OnInit<% if (navigationTy
 <% if (navigationType == "outside") { %>
       this.buttonService.buttonInfos = [this.btnPrev, this.btnNext, this.btnFin];
 <% } %>
-  }
-
-  ngOnInit() {
-
   }
 
 <% if (navigationType == "outside") { %>

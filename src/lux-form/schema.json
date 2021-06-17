@@ -64,9 +64,7 @@
           { "value": "select", "label": "lux-select" },
           { "value": "toogle", "label": "lux-toogle" },
           { "value": "chips", "label": "lux-chips" },
-          { "value": "textarea", "label": "lux-textarea" },
-          { "value": "fileInput", "label": "lux-file-input" },
-          { "value": "fileList", "label": "lux-file-list" }
+          { "value": "textarea", "label": "lux-textarea" }
         ]
       }
     },

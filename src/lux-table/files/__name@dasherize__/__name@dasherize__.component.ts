@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component<% if (asyncData == false) { %>, OnInit<% } %> } from '@angular/core';
 <% if (customCSSConfig == true) { %>import { ICustomCSSConfig } from '@ihk-gfi/lux-components';<% } %>
 <% if (asyncData == true) { %>import { <%= classify(name) %>HttpDao } from './<%= dasherize(name) %>-http-dao';<% } %>
 
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./<%= dasherize(name) %>.component.scss'],<% } %>
   templateUrl: './<%= dasherize(name) %>.component.html',
 })
-export class <%= classify(name) %>Component implements OnInit {
+export class <%= classify(name) %>Component <% if (asyncData == false) { %>implements OnInit <% } %>{
 
 <% if (asyncData == true) { %>
   httpDAO = null;
@@ -36,13 +36,12 @@ export class <%= classify(name) %>Component implements OnInit {
 <% } %>
   }
 
-  ngOnInit() {
-    <% if (asyncData == false) { %>
+  <% if (asyncData == false) { %>
+    ngOnInit() {
       for (let i = 0; i < 10; i++) {
         this.dataSource.push({label: 'ToDo'});
       }
-      <% } %>
-  }
+  }<% } %>
 
   <% if (multiSelect == true) { %>
     onSelectedChange($event) {

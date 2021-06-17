@@ -55,10 +55,10 @@ describe('lux-tabs', () => {
   });
 
   describe('schema.counterVisible', () => {
-    it('Sollte kein Counter erstellen', async (done) => {
+    it('Sollte kein Counter erstellen', (done) => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxTabs(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTabs(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
 
@@ -78,11 +78,11 @@ describe('lux-tabs', () => {
       );
     });
 
-    it('Sollte ein Counter erstellen', async (done) => {
+    it('Sollte ein Counter erstellen', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.counterVisible = true;
 
-      callRule(luxTabs(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTabs(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
 
@@ -104,10 +104,10 @@ describe('lux-tabs', () => {
   });
 
   describe('schema.otherSchematics', () => {
-    it('Sollte die Tabs mit einem Beispieltext, FormComponent und CardComponent erstellen', async (done) => {
+    it('Sollte die Tabs mit einem Beispieltext, FormComponent und CardComponent erstellen', (done) => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxTabs(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTabs(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
 
@@ -129,11 +129,11 @@ describe('lux-tabs', () => {
       );
     });
 
-    it('Sollte ein Tab mit Beispieltext erstellen', async (done) => {
+    it('Sollte ein Tab mit Beispieltext erstellen', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.otherSchematics = ['text'];
 
-      callRule(luxTabs(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTabs(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
 
