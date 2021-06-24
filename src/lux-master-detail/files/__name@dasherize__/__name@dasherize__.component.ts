@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: '<%= shorthandSymbol %>-<%= dasherize(name) %>',<% if (createStylesheet) { %>
   styleUrls: ['./<%= dasherize(name) %>.component.scss'],<% } %>
   templateUrl: './<%= dasherize(name) %>.component.html',
 })
-export class <%= classify(name) %>Component implements OnInit {
+export class <%= classify(name) %>Component {
 
 <% if (createWithFilter == true) { %>  
   options = [
@@ -22,10 +22,6 @@ export class <%= classify(name) %>Component implements OnInit {
 
   constructor() {
     this.fillList();
-  }
-
-  ngOnInit() {
-
   }
 
   // $event entspricht dem selektierten Objekt aus der Masterliste

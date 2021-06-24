@@ -62,7 +62,7 @@ describe('lux-table', () => {
     it('Sollte keine Pagination generieren', () => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).not.toContain(
@@ -77,7 +77,7 @@ describe('lux-table', () => {
       const testOptions = { ...defaultOptions };
       testOptions.showPagination = true;
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).toContain(
@@ -93,7 +93,7 @@ describe('lux-table', () => {
     it('Sollte keinen Filter generieren', () => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).not.toContain('[luxShowFilter]="true"  luxFilterText="Filter hier eingeben"');
@@ -106,7 +106,7 @@ describe('lux-table', () => {
       const testOptions = { ...defaultOptions };
       testOptions.showFilter = true;
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).toContain('[luxShowFilter]="true"  luxFilterText="Filter hier eingeben"');
@@ -120,7 +120,7 @@ describe('lux-table', () => {
     it('Sollte keine Multiselect-Tabelle generieren', () => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).not.toContain('[luxMultiSelect]="true" (luxSelectedChange)="onSelectedChange($event)"');
@@ -136,7 +136,7 @@ describe('lux-table', () => {
       const testOptions = { ...defaultOptions };
       testOptions.multiSelect = true;
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).toContain('[luxMultiSelect]="true" (luxSelectedChange)="onSelectedChange($event)"');
@@ -153,7 +153,7 @@ describe('lux-table', () => {
     it('Sollte keine Custom-CSS-Klasse generieren', () => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).not.toContain('[luxClasses]="tableCSS"');
@@ -170,7 +170,7 @@ describe('lux-table', () => {
       const testOptions = { ...defaultOptions };
       testOptions.customCSSConfig = true;
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).toContain('[luxClasses]="tableCSS"');
@@ -190,7 +190,7 @@ describe('lux-table', () => {
     it('Sollte die Daten normal bereitstellen', () => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).toContain('[luxData]="dataSource"');
@@ -210,7 +210,7 @@ describe('lux-table', () => {
       const testOptions = { ...defaultOptions };
       testOptions.asyncData = true;
 
-      callRule(luxTable(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
           expect(htmlContent).toContain('[luxHttpDAO]="httpDAO"');

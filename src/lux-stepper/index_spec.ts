@@ -60,7 +60,7 @@ describe('lux-stepper', () => {
       const testOptions = { ...defaultOptions };
       testOptions.createVerticalStepper = false;
 
-      callRule(luxStepper(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxStepper(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent.trim()).not.toContain('[luxVerticalStepper]="true"');
@@ -73,7 +73,7 @@ describe('lux-stepper', () => {
       const testOptions = { ...defaultOptions };
       testOptions.createVerticalStepper = true;
 
-      callRule(luxStepper(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxStepper(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent.trim()).toContain('[luxVerticalStepper]="true"');
@@ -87,7 +87,7 @@ describe('lux-stepper', () => {
     it('Sollte die Navigation innerhalb des Steppers generieren', () => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxStepper(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxStepper(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent.trim()).toContain('[luxPreviousButtonConfig]="stepperPreviousButtonConfig"');
@@ -105,7 +105,7 @@ describe('lux-stepper', () => {
       const testOptions = { ...defaultOptions };
       testOptions.navigationType = 'outside';
 
-      callRule(luxStepper(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxStepper(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
 

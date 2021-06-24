@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: '<%= shorthandSymbol %>-<%= dasherize(name) %>',<% if (createStylesheet) { %>
   styleUrls: ['./<%= dasherize(name) %>.component.scss'],<% } %>
   templateUrl: './<%= dasherize(name) %>.component.html',
 })
-export class <%= classify(name) %>Component implements OnInit {
-  constructor() {}
+export class <%= classify(name) %>Component {
 
-  ngOnInit() {}
+  constructor() {}
 
   luxOpened() {
     console.log('luxOpened');

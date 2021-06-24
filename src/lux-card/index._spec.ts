@@ -59,7 +59,7 @@ describe('lux-card', () => {
       const testOptions = { ...defaultOptions };
       testOptions.typeOfCard = 'simple';
 
-      callRule(luxCard(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxCard(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
 
@@ -77,7 +77,7 @@ describe('lux-card', () => {
       const testOptions = { ...defaultOptions };
       testOptions.typeOfCard = 'expended';
 
-      callRule(luxCard(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxCard(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
 
@@ -97,7 +97,7 @@ describe('lux-card', () => {
       const testOptions = { ...defaultOptions };
       testOptions.createCardActions = true;
 
-      callRule(luxCard(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxCard(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent).toContain('<lux-card-actions>');
@@ -114,7 +114,7 @@ describe('lux-card', () => {
       const testOptions = { ...defaultOptions };
       testOptions.createCardActions = false;
 
-      callRule(luxCard(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxCard(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent).not.toContain('<lux-card-actions>');

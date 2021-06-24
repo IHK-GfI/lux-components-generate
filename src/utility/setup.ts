@@ -1,6 +1,6 @@
-import { Tree } from '@angular-devkit/schematics';
+import { SchematicsException, Tree } from '@angular-devkit/schematics';
 import { parseName } from '@schematics/angular/utility/parse-name';
-import { buildDefaultPath, getProject } from '@schematics/angular/utility/project';
+import { findNodeAtLocation, parseTree, Node } from 'jsonc-parser';
 import { validateName, validateProjectName } from './validation';
 
 /**
@@ -13,10 +13,11 @@ export function setupOptions(tree: Tree, options: any): Tree {
   validateProjectName(options.project);
   validateName(options.name);
 
-  const project = getProject(tree, options.project);
-
   if (options.path === undefined) {
-    options.path = buildDefaultPath(project);
+    const packageJsonAsNode = readJson(tree, '/angular.json');
+    const sourceRootNode = findNodeAtLocation(packageJsonAsNode, ["projects", options.project, "sourceRoot"]);
+    const prefixNode = findNodeAtLocation(packageJsonAsNode, ["projects", options.project, "prefix"]);
+    options.path = sourceRootNode?.value + '/' + prefixNode?.value;
   }
 
   const parsedPath = parseName(options.path, options.name);
@@ -24,4 +25,15 @@ export function setupOptions(tree: Tree, options: any): Tree {
   options.path = parsedPath.path;
 
   return tree;
+}
+
+function readJson(tree: Tree, filePath: string): Node {
+  const buffer = tree.read(filePath);
+  if (buffer === null) {
+    throw new SchematicsException(`Konnte die Datei ${filePath} nicht lesen.`);
+  }
+  const content = buffer.toString();
+
+  let result = parseTree(content) as Node;
+  return result;
 }

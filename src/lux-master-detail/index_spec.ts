@@ -58,7 +58,7 @@ describe('lux-master-detail', () => {
       const testOptions = { ...defaultOptions };
       testOptions.createWithFilter = false;
 
-      callRule(luxMasterDetail(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxMasterDetail(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
           expect(tsContent.trim()).not.toContain('changeFilter($event) {');
@@ -74,7 +74,7 @@ describe('lux-master-detail', () => {
       const testOptions = { ...defaultOptions };
       testOptions.createWithFilter = true;
 
-      callRule(luxMasterDetail(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxMasterDetail(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent.trim()).toContain(

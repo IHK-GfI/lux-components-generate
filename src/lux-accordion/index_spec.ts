@@ -57,7 +57,7 @@ describe('lux-accordion', () => {
     it('Sollte ein Panel mit Accordion generieren', () => {
       const testOptions = { ...defaultOptions };
       testOptions.soloPanel = false;
-      callRule(schematicsFunction(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(schematicsFunction(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent.trim()).toContain('<lux-accordion [luxMulti]="true">');
@@ -70,7 +70,7 @@ describe('lux-accordion', () => {
     it('Sollte ein Panel ohne Accordion generieren', () => {
       const testOptions = { ...defaultOptions };
       testOptions.soloPanel = true;
-      callRule(schematicsFunction(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(schematicsFunction(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent.trim()).not.toContain('<lux-accordion [luxMulti]="true">');

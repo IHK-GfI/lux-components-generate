@@ -1,6 +1,6 @@
 import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
-import { callRule, SchematicContext } from '@angular-devkit/schematics';
+import { callRule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { of as observableOf } from 'rxjs';
 
 /**
@@ -57,7 +57,7 @@ export class TestHelper {
     const testOptions = { ...defaultOptions };
     testOptions.createTests = true;
 
-    callRule(schematicFunction(testOptions), observableOf(this.appTree), this.context).subscribe(
+    callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
         expect(this.appTree.files).toContain(`/projects/bar/src/app/test/test.component.spec.ts`);
       },
@@ -69,7 +69,7 @@ export class TestHelper {
     const testOptions = { ...defaultOptions };
     testOptions.createTests = false;
 
-    callRule(schematicFunction(testOptions), observableOf(this.appTree), this.context).subscribe(
+    callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
         expect(this.appTree.files).not.toContain(`/projects/bar/src/app/test/test.component.spec.ts`);
       },
@@ -81,7 +81,7 @@ export class TestHelper {
     const testOptions = { ...defaultOptions };
     testOptions.createStylesheet = true;
 
-    callRule(schematicFunction(testOptions), observableOf(this.appTree), this.context).subscribe(
+    callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
         const tsContent = this.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
         expect(tsContent).toContain(`styleUrls: [\'./test.component.scss\'],`);
@@ -95,7 +95,7 @@ export class TestHelper {
     const testOptions = { ...defaultOptions };
     testOptions.createStylesheet = false;
 
-    callRule(schematicFunction(testOptions), observableOf(this.appTree), this.context).subscribe(
+    callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
         const tsContent = this.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
         expect(tsContent).not.toContain(`styleUrls: [\'./test.component.scss\'],`);
@@ -109,7 +109,7 @@ export class TestHelper {
     const testOptions = { ...defaultOptions };
     testOptions.importToNgModule = true;
 
-    callRule(schematicFunction(testOptions), observableOf(this.appTree), this.context).subscribe(
+    callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
         const moduleContent = this.appTree.readContent('/projects/bar/src/app/app.module.ts');
         expect(moduleContent).toMatch(/import.*Test.*from '.\/test\/test.component'/);
@@ -123,7 +123,7 @@ export class TestHelper {
     const testOptions = { ...defaultOptions };
     testOptions.importToNgModule = false;
 
-    callRule(schematicFunction(testOptions), observableOf(this.appTree), this.context).subscribe(
+    callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
         const moduleContent = this.appTree.readContent('/projects/bar/src/app/app.module.ts');
         expect(moduleContent).not.toMatch(/import.*Test.*from '.\/test\/test.component'/);

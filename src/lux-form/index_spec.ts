@@ -58,7 +58,7 @@ describe('lux-formular', () => {
     it('Sollte "app" als Kürzel nutzen', () => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxForm(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxForm(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
 
@@ -72,7 +72,7 @@ describe('lux-formular', () => {
       const testOptions = { ...defaultOptions };
       testOptions.shorthandSymbol = 'xyz';
 
-      callRule(luxForm(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxForm(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
 
@@ -87,7 +87,7 @@ describe('lux-formular', () => {
     it('Sollte mit Beispielen generiert werden', () => {
       const testOptions = { ...defaultOptions };
 
-      callRule(luxForm(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxForm(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
 
@@ -126,7 +126,7 @@ describe('lux-formular', () => {
       const testOptions = { ...defaultOptions };
       testOptions.columnType = 'dual';
 
-      callRule(luxForm(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxForm(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
 
@@ -183,7 +183,7 @@ describe('lux-formular', () => {
       const testOptions = { ...defaultOptions };
       testOptions.columnType = 'three';
 
-      callRule(luxForm(testOptions), observableOf(testHelper.appTree), testHelper.context).subscribe(
+      callRule(luxForm(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
 

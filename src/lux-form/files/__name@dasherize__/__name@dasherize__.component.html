@@ -53,16 +53,6 @@
                 <lux-textarea luxLabel="LuxTextareaComponent" luxControlBinding="textarea<%= j %>" *luxLayoutRowItem></lux-textarea>
                 <% } else if(formControls[i] == "datepicker") { %>
                 <lux-datepicker luxLabel="LuxDatepickerComponent" luxControlBinding="datepicker<%= j %>" *luxLayoutRowItem></lux-datepicker>
-                <% } else if(formControls[i] =="file-input") { %>
-                <lux-file-input luxLabel="Bitte Laden Sie eine Datei hoch" luxControlBinding="file-input<%= j %>"
-                                luxHint="Klicken Sie auf den 'Upload'-Button oder ziehen Sie die Datei mit Drag-and-Drop auf die Fläche."
-                                luxAccept=".pdf" [luxMaxSizeMB]="10" *luxLayoutRowItem>
-                </lux-file-input>
-                <% } else if(formControls[i] =="file-list") {%>
-                <lux-file-list luxLabel="Ihre Dateien" luxControlBinding="file-list<%= j %>"
-                               luxHint="Klicken Sie auf den 'Upload'-Button oder ziehen Sie die Datei mit Drag-and-Drop auf die Fläche."
-                               luxAccept=".pdf" [luxMaxSizeMB]="10" *luxLayoutRowItem>
-                </lux-file-list>
                 <% } %>
             <% } %>
             </lux-layout-form-row>
