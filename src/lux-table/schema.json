@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "LUX-Table-Schema",
+  "$id": "LUX-Table-Schema",
   "title": "LUX-Table Component Options Schema",
   "type": "object",
   "description": "Erstellt eine neue generische Table-Komponente nach Benutzereingaben.",

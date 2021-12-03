@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "LUX-Tabs-Schema",
+  "$id": "LUX-Tabs-Schema",
   "title": "LUX-Tabs Component Options Schema",
   "type": "object",
   "description": "Erstellt eine neue generische Tabs-Komponente.",

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "LUX-Master-Detail-Schema",
+  "$id": "LUX-Master-Detail-Schema",
   "title": "LUX-Master-Detail Component Options Schema",
   "type": "object",
   "description": "Erstellt eine neue generische Master-Detail-Komponente mit Benutzer-Eingaben oder ein Standard-Master-Detail.",

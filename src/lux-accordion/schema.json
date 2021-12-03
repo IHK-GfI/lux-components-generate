@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "LUX-Accordion-Schema",
+  "$id": "LUX-Accordion-Schema",
   "title": "LUX-Accordion Component Options Schema",
   "type": "object",
   "description": "Erstellt eine neue generische Accordion-Komponente.",

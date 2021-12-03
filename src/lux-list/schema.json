@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "LUX-List-Schema",
+  "$id": "LUX-List-Schema",
   "title": "LUX-List Component Options Schema",
   "type": "object",
   "description": "Erstellt eine neue generische List-Komponente.",
