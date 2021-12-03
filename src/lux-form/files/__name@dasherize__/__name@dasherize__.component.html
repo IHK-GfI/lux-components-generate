@@ -1,6 +1,6 @@
 <lux-layout>
     <lux-layout-card-row>
-        <lux-card <% if (columnType =="single") { %>luxTitle="Einspaltiges Formular"<% } %><% if (columnType =="dual") { %>luxTitle="Zweispaltiges Formular"<% } %><% if (columnType =="three") { %>luxTitle="Dreispaltiges Formular"<% } %> *luxLayoutRowItem>
+        <lux-card <% if (columnType =="single") { %>luxTitle="Einspaltiges Formular"<% } %><% if (columnType =="dual") { %>luxTitle="Zweispaltiges Formular"<% } %><% if (columnType =="three") { %>luxTitle="Dreispaltiges Formular"<% } %> *luxLayoutRowItem="{}">
             <lux-card-content>
                 <form [formGroup]="form">
                     <lux-layout>
@@ -27,32 +27,32 @@
         <lux-layout-form-row>
             <% for(let j = 0; j < rowItemCount; j++) { %>
                 <% if (formControls[i] == "input") { %>
-                <lux-input luxLabel="LuxInputComponent" luxControlBinding="input<%= j %>" *luxLayoutRowItem></lux-input>
+                <lux-input luxLabel="LuxInputComponent" luxControlBinding="input<%= j %>" *luxLayoutRowItem="{}"></lux-input>
                 <% } else if(formControls[i] == "select") { %>
-                <lux-select luxLabel="LuxSelectComponent" luxControlBinding="select<%= j %>" [luxOptions]="selectOptions" *luxLayoutRowItem>
+                <lux-select luxLabel="LuxSelectComponent" luxControlBinding="select<%= j %>" [luxOptions]="selectOptions" *luxLayoutRowItem="{}">
                     <ng-template let-option>
                         {{ option.label }}
                     </ng-template>
                 </lux-select>
                 <% } else if(formControls[i] == "toogle") { %>
-                <lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle<%= j %>" *luxLayoutRowItem></lux-toggle>
+                <lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle<%= j %>" *luxLayoutRowItem="{}"></lux-toggle>
                 <% } else if(formControls[i] == "checkbox") { %>
-                <lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox<%= j %>" *luxLayoutRowItem></lux-checkbox>
+                <lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox<%= j %>" *luxLayoutRowItem="{}"></lux-checkbox>
                 <% } else if(formControls[i] == "radio") { %>
-                <lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio<%= j %>" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem>
+                <lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio<%= j %>" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">
                     <ng-template let-option>
                         {{ option['label'] }}
                     </ng-template>
                 </lux-radio>
                 <% } else if(formControls[i] == "chips") {%>
-                <lux-chips luxInputLabel="LuxChipsComponent" [luxInputAllowed]="true" [luxNewChipGroup]="group" *luxLayoutRowItem>
+                <lux-chips luxInputLabel="LuxChipsComponent" [luxInputAllowed]="true" [luxNewChipGroup]="group" *luxLayoutRowItem="{}">
                     <lux-chip-group [luxLabels]="chipItems" luxColor="primary" [luxRemovable]="true"
                                     #group></lux-chip-group>
                 </lux-chips>
                 <% } else if(formControls[i] == "textarea") { %>
-                <lux-textarea luxLabel="LuxTextareaComponent" luxControlBinding="textarea<%= j %>" *luxLayoutRowItem></lux-textarea>
+                <lux-textarea luxLabel="LuxTextareaComponent" luxControlBinding="textarea<%= j %>" *luxLayoutRowItem="{}"></lux-textarea>
                 <% } else if(formControls[i] == "datepicker") { %>
-                <lux-datepicker luxLabel="LuxDatepickerComponent" luxControlBinding="datepicker<%= j %>" *luxLayoutRowItem></lux-datepicker>
+                <lux-datepicker luxLabel="LuxDatepickerComponent" luxControlBinding="datepicker<%= j %>" *luxLayoutRowItem="{}"></lux-datepicker>
                 <% } %>
             <% } %>
             </lux-layout-form-row>
