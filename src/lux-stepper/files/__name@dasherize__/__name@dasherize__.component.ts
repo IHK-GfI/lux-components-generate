@@ -34,7 +34,7 @@ export class <%= classify(name) %>Component <% if (navigationType == "outside") 
     btnPrev = LuxAppFooterButtonInfo.generateInfo({
       label: 'Zurück',
       cmd: 'previous',
-      color: 'default',
+      color: '',
       alwaysVisible: false,
       hidden: true,
       onClick: () => this.stepperService.previousStep()
