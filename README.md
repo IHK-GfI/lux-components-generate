@@ -11,7 +11,7 @@ Bereits vorhandene Generatoren
 | lux-form            | Ermöglicht die Generierung einer Form-Component mit wahlweise einer, zwei bzw. drei Spalten und einer Reihe von Beispiel-FormComponents.                                |
 | lux-stepper         | Ermöglicht die Generierung einer Stepper-Component mit übergebener Step-Anzahl, einer Reihe von Beispiel-FormComponents und der Auswahl einer ausgelagerten Navigation. |
 | lux-master-detail   | Ermöglicht die Generierung einer Master-Detail-Component mit einer Beispiel-Masterliste und Detail-View.                                                                |
-| lux-card            | Ermöglicht die Generierung einer simplen/erweiterbaren Card-Component. Optional ist der zusätzliche Action-Bereich.                                      |
+| lux-card            | Ermöglicht die Generierung einer simplen/erweiterbaren Card-Component. Optional ist der zusätzliche Action-Bereich.                                                     |
 | lux-table           | Ermöglicht die Generierung einer normalen Tabelle gegenüber dem asynchronen Abruf von Daten. Optional kann eine Pagination, Filter oder Multi-Select hinzugefügt werden.|
 | lux-accordion       | Ermöglicht die Generierung einer Component mit allein stehendem Panel oder darüber liegendem Accordion.                                                                 |
 | lux-tabs            | Ermöglicht die Generierung einer Tabs-Component. Optional können die Tabs um einen Counter und mit weiteren LUX-Components erweitert werden.                            |
@@ -27,7 +27,7 @@ npm install @ihk-gfi/lux-components-generate@latest --save-dev
 Spezielle Version installieren:
 
 ```bash
-npm install --save @ihk-gfi/lux-components-generate@0.0.1
+npm install --save @ihk-gfi/lux-components-generate@12.0.0
 ```
 
 ## Ausführen eines Schematic-Scripts
