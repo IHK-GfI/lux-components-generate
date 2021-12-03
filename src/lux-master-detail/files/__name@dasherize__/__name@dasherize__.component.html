@@ -7,7 +7,7 @@
   luxEmptyLabelDetail="Kein Detail selektiert!"
   [luxMasterIsLoading]="masterIsLoading"
   [luxSelectedDetail]="masterSelected"
-  [(luxMasterList)]="masterItems"
+  [luxMasterList]="masterItems"
   (luxSelectedDetailChange)="loadDetail($event)"
   (luxScrolled)="loadFurtherEntries($event)"
   luxTagIdMaster="masterTagId"
