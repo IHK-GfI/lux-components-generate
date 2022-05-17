@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "LUX-Stepper-Schema",
+  "$id": "LUX-Stepper-Schema",
   "title": "LUX-Stepper Component Options Schema",
   "type": "object",
   "description": "Erstellt eine neue generische Stepper-Komponente mit Benutzer-Eingaben oder ein Standard-Stepper.",

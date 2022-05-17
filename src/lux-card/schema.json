@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "LUX-Card-Schema",
+  "$id": "LUX-Card-Schema",
   "title": "LUX-Card Component Options Schema",
   "type": "object",
   "description": "Erstellt eine neue generische Card-Komponente.",

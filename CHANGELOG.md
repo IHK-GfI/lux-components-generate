@@ -1,3 +1,9 @@
+## Version 13.0.0
+- Update auf Angular 13.
+
+## Version 11.0.0
+- Update auf Angular 11.
+
 ## Version 10.0.0
 - Update auf Angular 10.
 

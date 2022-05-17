@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "LUX-Formular-Schema",
+  "$id": "LUX-Formular-Schema",
   "title": "LUX-Formular Component Options Schema",
   "type": "object",
   "description": "Erstellt eine neue generische Formular-Komponente mit Benutzer-Eingaben oder ein Standard-Formular.",

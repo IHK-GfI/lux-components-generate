@@ -103,16 +103,16 @@ describe('lux-formular', () => {
           expect(htmlContent.trim()).toContain('<form [formGroup]="form">');
           expect(htmlContent.trim()).toContain('luxTitle="Einspaltiges Formular"');
           expect(htmlContent.trim()).toContain(
-            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input0" *luxLayoutRowItem></lux-input>'
+            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input0" *luxLayoutRowItem="{}"></lux-input>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox0" *luxLayoutRowItem></lux-checkbox>'
+            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox0" *luxLayoutRowItem="{}"></lux-checkbox>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle0" *luxLayoutRowItem></lux-toggle>'
+            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle0" *luxLayoutRowItem="{}"></lux-toggle>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio0" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem>'
+            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio0" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
           );
           expect(htmlContent.trim()).toContain('</form>');
         },
@@ -147,29 +147,29 @@ describe('lux-formular', () => {
           expect(htmlContent.trim()).toContain('<form [formGroup]="form">');
           expect(htmlContent.trim()).toContain('luxTitle="Zweispaltiges Formular"');
           expect(htmlContent.trim()).toContain(
-            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input0" *luxLayoutRowItem></lux-input>'
+            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input0" *luxLayoutRowItem="{}"></lux-input>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox0" *luxLayoutRowItem></lux-checkbox>'
+            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox0" *luxLayoutRowItem="{}"></lux-checkbox>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle0" *luxLayoutRowItem></lux-toggle>'
+            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle0" *luxLayoutRowItem="{}"></lux-toggle>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio0" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem>'
+            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio0" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
           );
 
           expect(htmlContent.trim()).toContain(
-            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input1" *luxLayoutRowItem></lux-input>'
+            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input1" *luxLayoutRowItem="{}"></lux-input>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox1" *luxLayoutRowItem></lux-checkbox>'
+            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox1" *luxLayoutRowItem="{}"></lux-checkbox>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle1" *luxLayoutRowItem></lux-toggle>'
+            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle1" *luxLayoutRowItem="{}"></lux-toggle>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio1" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem>'
+            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio1" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
           );
           expect(htmlContent.trim()).toContain('</form>');
         },
@@ -209,42 +209,42 @@ describe('lux-formular', () => {
           expect(htmlContent.trim()).toContain('<form [formGroup]="form">');
           expect(htmlContent.trim()).toContain('luxTitle="Dreispaltiges Formular"');
           expect(htmlContent.trim()).toContain(
-            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input0" *luxLayoutRowItem></lux-input>'
+            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input0" *luxLayoutRowItem="{}"></lux-input>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox0" *luxLayoutRowItem></lux-checkbox>'
+            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox0" *luxLayoutRowItem="{}"></lux-checkbox>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle0" *luxLayoutRowItem></lux-toggle>'
+            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle0" *luxLayoutRowItem="{}"></lux-toggle>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio0" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem>'
-          );
-
-          expect(htmlContent.trim()).toContain(
-            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input1" *luxLayoutRowItem></lux-input>'
-          );
-          expect(htmlContent.trim()).toContain(
-            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox1" *luxLayoutRowItem></lux-checkbox>'
-          );
-          expect(htmlContent.trim()).toContain(
-            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle1" *luxLayoutRowItem></lux-toggle>'
-          );
-          expect(htmlContent.trim()).toContain(
-            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio1" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem>'
+            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio0" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
           );
 
           expect(htmlContent.trim()).toContain(
-            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input2" *luxLayoutRowItem></lux-input>'
+            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input1" *luxLayoutRowItem="{}"></lux-input>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox2" *luxLayoutRowItem></lux-checkbox>'
+            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox1" *luxLayoutRowItem="{}"></lux-checkbox>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle2" *luxLayoutRowItem></lux-toggle>'
+            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle1" *luxLayoutRowItem="{}"></lux-toggle>'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio2" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem>'
+            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio1" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
+          );
+
+          expect(htmlContent.trim()).toContain(
+            '<lux-input luxLabel="LuxInputComponent" luxControlBinding="input2" *luxLayoutRowItem="{}"></lux-input>'
+          );
+          expect(htmlContent.trim()).toContain(
+            '<lux-checkbox luxLabel="LuxCheckboxComponent" luxControlBinding="checkbox2" *luxLayoutRowItem="{}"></lux-checkbox>'
+          );
+          expect(htmlContent.trim()).toContain(
+            '<lux-toggle luxLabel="LuxToogleComponent" luxControlBinding="toogle2" *luxLayoutRowItem="{}"></lux-toggle>'
+          );
+          expect(htmlContent.trim()).toContain(
+            '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio2" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
           );
           expect(htmlContent.trim()).toContain('</form>');
         },
