@@ -23,32 +23,38 @@ describe('lux-list', () => {
   });
 
   describe('schema.createTests', () => {
-    it('Sollte .spec.ts generieren (true)', () => {
+    it('Sollte .spec.ts generieren (true)', (done) => {
       testHelper.testSpecTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte .spec.ts generieren (false)', () => {
+    it('Sollte .spec.ts generieren (false)', (done) => {
       testHelper.testSpecFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.createStylesheet', () => {
-    it('Sollte .scss generieren (true)', () => {
+    it('Sollte .scss generieren (true)', (done) => {
       testHelper.testScssTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte .scss generieren (false)', () => {
+    it('Sollte .scss generieren (false)', (done) => {
       testHelper.testScssFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.importToNgModule', () => {
-    it('Sollte den Import in das Module einfügen (true)', () => {
+    it('Sollte den Import in das Module einfügen (true)', (done) => {
       testHelper.testImportTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte den Import in das Module einfügen (false)', () => {
+    it('Sollte den Import in das Module einfügen (false)', (done) => {
       testHelper.testImportFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 });

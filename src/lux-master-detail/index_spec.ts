@@ -2,7 +2,6 @@ import { callRule } from '@angular-devkit/schematics';
 import * as path from 'path';
 import { TestHelper } from '../utility/test-helper';
 import { luxMasterDetail } from './index';
-import { of as observableOf } from 'rxjs';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
@@ -24,37 +23,43 @@ describe('lux-master-detail', () => {
   });
 
   describe('schema.createTests', () => {
-    it('Sollte .spec.ts generieren (true)', () => {
+    it('Sollte .spec.ts generieren (true)', (done) => {
       testHelper.testSpecTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte .spec.ts generieren (false)', () => {
+    it('Sollte .spec.ts generieren (false)', (done) => {
       testHelper.testSpecFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.createStylesheet', () => {
-    it('Sollte .scss generieren (true)', () => {
+    it('Sollte .scss generieren (true)', (done) => {
       testHelper.testScssTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte .scss generieren (false)', () => {
+    it('Sollte .scss generieren (false)', (done) => {
       testHelper.testScssFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.importToNgModule', () => {
-    it('Sollte den Import in das Module einfügen (true)', () => {
+    it('Sollte den Import in das Module einfügen (true)', (done) => {
       testHelper.testImportTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte den Import in das Module einfügen (false)', () => {
+    it('Sollte den Import in das Module einfügen (false)', (done) => {
       testHelper.testImportFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.createWithFilter', () => {
-    it('Sollte kein zusätzlichen Filter im Master Header generieren', () => {
+    it('Sollte kein zusätzlichen Filter im Master Header generieren', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.createWithFilter = false;
 
@@ -65,12 +70,13 @@ describe('lux-master-detail', () => {
 
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent.trim()).toContain('<h2>Master Header</h2>');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
     });
 
-    it('Sollte ein zusätzlichen Filter im Master Header generieren', () => {
+    it('Sollte ein zusätzlichen Filter im Master Header generieren', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.createWithFilter = true;
 
@@ -96,6 +102,7 @@ describe('lux-master-detail', () => {
           expect(tsContent.trim()).toContain('changeFilter($event) {');
           expect(tsContent.trim()).toContain("console.log('Filter ausgewählt', $event);");
           expect(tsContent.trim()).toContain('}');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
