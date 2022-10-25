@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: '<%= shorthandSymbol %>-<%= dasherize(name) %>',<% if (createStylesheet) { %>
@@ -9,7 +10,7 @@ export class <%= classify(name) %>Component {
 
   constructor() {}
 
-  activeTabChanged($event) {
+  activeTabChanged($event: MatTabChangeEvent) {
     console.log('luxActiveTabChanged ', $event);
   }
 }

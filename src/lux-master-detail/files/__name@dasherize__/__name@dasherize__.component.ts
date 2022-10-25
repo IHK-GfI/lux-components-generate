@@ -25,12 +25,12 @@ export class <%= classify(name) %>Component {
   }
 
   // $event entspricht dem selektierten Objekt aus der Masterliste
-  loadDetail($event) {
+  loadDetail($event: any) {
     console.log('Detail geladen', $event);
   }
 
-  loadFurtherEntries($event) {
-    console.log('Scroll-Event des Infinite-Scrolls auf der Master-Liste', $event);
+  loadFurtherEntries() {
+    console.log('Scroll-Event des Infinite-Scrolls auf der Master-Liste');
   }
 
   fillList() {
