@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      - run: npm ci
+      - run: npm install
       - run: npm run test
 
   publish-npm:
@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
+      - run: npm install
       - run: npm run build
       - run: npm publish --access public
         env:
@@ -40,7 +40,7 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
           scope: '@ihk-gfi'
-      - run: npm ci
+      - run: npm install
       - run: npm run build
       - run: npm publish
         env:
