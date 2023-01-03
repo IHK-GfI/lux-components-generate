@@ -10,21 +10,19 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": false,
     "noImplicitThis": true,
-    "noUnusedParameters": false,
-    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "rootDir": "src/",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strictNullChecks": true,
-    "target": "es6",
+    "strict": true,
+    "target": "ES2015",
     "types": [
       "jasmine",
       "node"
-    ],
-    "allowUnusedLabels": true
+    ]
   },
   "include": [
     "src/**/*"

@@ -1,7 +1,6 @@
 import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
-import { callRule, SchematicContext, Tree } from '@angular-devkit/schematics';
-import { of as observableOf } from 'rxjs';
+import { callRule, SchematicContext } from '@angular-devkit/schematics';
 
 /**
  * Standard-Optionen für das Test-Workspace.
@@ -34,11 +33,11 @@ export const appOptions: {
 };
 
 export class TestHelper {
-  appTree: UnitTestTree;
-  runner: SchematicTestRunner;
-  context: SchematicContext;
+  appTree!: UnitTestTree;
+  runner!: SchematicTestRunner;
+  context!: SchematicContext;
 
-  async init(schematicName: string, collectionPath) {
+  async init(schematicName: string, collectionPath: string) {
     this.runner = new SchematicTestRunner('schematics', collectionPath);
 
     this.appTree = await this.runner
@@ -53,31 +52,33 @@ export class TestHelper {
     this.context = this.runner.engine.createContext(schematic);
   }
 
-  testSpecTrue(schematicFunction: Function, defaultOptions) {
+  testSpecTrue(schematicFunction: Function, defaultOptions: any) {
     const testOptions = { ...defaultOptions };
     testOptions.createTests = true;
 
     callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
+        expect(this.appTree.files).toContain(`/projects/bar/src/app/test/test.component.ts`);
         expect(this.appTree.files).toContain(`/projects/bar/src/app/test/test.component.spec.ts`);
       },
       (reason) => expect(reason).toBeUndefined()
     );
   }
 
-  testSpecFalse(schematicFunction: Function, defaultOptions) {
+  testSpecFalse(schematicFunction: Function, defaultOptions: any) {
     const testOptions = { ...defaultOptions };
     testOptions.createTests = false;
 
     callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
+        expect(this.appTree.files).toContain(`/projects/bar/src/app/test/test.component.ts`);
         expect(this.appTree.files).not.toContain(`/projects/bar/src/app/test/test.component.spec.ts`);
       },
       (reason) => expect(reason).toBeUndefined()
     );
   }
 
-  testScssTrue(schematicFunction: Function, defaultOptions) {
+  testScssTrue(schematicFunction: Function, defaultOptions: any) {
     const testOptions = { ...defaultOptions };
     testOptions.createStylesheet = true;
 
@@ -91,13 +92,14 @@ export class TestHelper {
     );
   }
 
-  testScssFalse(schematicFunction: Function, defaultOptions) {
+  testScssFalse(schematicFunction: Function, defaultOptions: any) {
     const testOptions = { ...defaultOptions };
     testOptions.createStylesheet = false;
 
     callRule(schematicFunction(testOptions), this.appTree, this.context).subscribe(
       () => {
         const tsContent = this.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
+        expect(tsContent).toContain(`export class TestComponent`);
         expect(tsContent).not.toContain(`styleUrls: [\'./test.component.scss\'],`);
         expect(this.appTree.files).not.toContain(`/projects/bar/src/app/test/test.component.scss`);
       },
@@ -105,7 +107,7 @@ export class TestHelper {
     );
   }
 
-  testImportTrue(schematicFunction: Function, defaultOptions) {
+  testImportTrue(schematicFunction: Function, defaultOptions: any) {
     const testOptions = { ...defaultOptions };
     testOptions.importToNgModule = true;
 
@@ -119,7 +121,7 @@ export class TestHelper {
     );
   }
 
-  testImportFalse(schematicFunction: Function, defaultOptions) {
+  testImportFalse(schematicFunction: Function, defaultOptions: any) {
     const testOptions = { ...defaultOptions };
     testOptions.importToNgModule = false;
 

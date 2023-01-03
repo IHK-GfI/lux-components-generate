@@ -2,7 +2,6 @@ import { callRule } from '@angular-devkit/schematics';
 import * as path from 'path';
 import { TestHelper } from '../utility/test-helper';
 import { luxForm } from './index';
-import { of as observableOf } from 'rxjs';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
@@ -25,37 +24,43 @@ describe('lux-formular', () => {
   });
 
   describe('schema.createTests', () => {
-    it('Sollte .spec.ts generieren (true)', () => {
+    it('Sollte .spec.ts generieren (true)', (done) => {
       testHelper.testSpecTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte .spec.ts generieren (false)', () => {
+    it('Sollte .spec.ts generieren (false)', (done) => {
       testHelper.testSpecFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.createStylesheet', () => {
-    it('Sollte .scss generieren (true)', () => {
+    it('Sollte .scss generieren (true)', (done) => {
       testHelper.testScssTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte .scss generieren (false)', () => {
+    it('Sollte .scss generieren (false)', (done) => {
       testHelper.testScssFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.importToNgModule', () => {
-    it('Sollte den Import in das Module einfügen (true)', () => {
+    it('Sollte den Import in das Module einfügen (true)', (done) => {
       testHelper.testImportTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte den Import in das Module einfügen (false)', () => {
+    it('Sollte den Import in das Module einfügen (false)', (done) => {
       testHelper.testImportFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.shorthandSymbol', () => {
-    it('Sollte "app" als Kürzel nutzen', () => {
+    it('Sollte "app" als Kürzel nutzen', (done) => {
       const testOptions = { ...defaultOptions };
 
       callRule(luxForm(testOptions), testHelper.appTree, testHelper.context).subscribe(
@@ -63,12 +68,13 @@ describe('lux-formular', () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
 
           expect(tsContent.trim()).toContain(`app-test`);
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
     });
 
-    it('Sollte eigenes Kürzel nutzen', () => {
+    it('Sollte eigenes Kürzel nutzen', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.shorthandSymbol = 'xyz';
 
@@ -77,6 +83,7 @@ describe('lux-formular', () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
 
           expect(tsContent.trim()).toContain(`xyz-test`);
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
@@ -84,7 +91,7 @@ describe('lux-formular', () => {
   });
 
   describe('schema.columnType = "single"', () => {
-    it('Sollte mit Beispielen generiert werden', () => {
+    it('Sollte mit Beispielen generiert werden', (done) => {
       const testOptions = { ...defaultOptions };
 
       callRule(luxForm(testOptions), testHelper.appTree, testHelper.context).subscribe(
@@ -115,6 +122,7 @@ describe('lux-formular', () => {
             '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio0" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
           );
           expect(htmlContent.trim()).toContain('</form>');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
@@ -122,7 +130,7 @@ describe('lux-formular', () => {
   });
 
   describe('schema.columnType = "dual"', () => {
-    it('Sollte mit Beispielen generiert werden', () => {
+    it('Sollte mit Beispielen generiert werden', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.columnType = 'dual';
 
@@ -172,6 +180,7 @@ describe('lux-formular', () => {
             '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio1" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
           );
           expect(htmlContent.trim()).toContain('</form>');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
@@ -179,7 +188,7 @@ describe('lux-formular', () => {
   });
 
   describe('schema.columnType = "three"', () => {
-    it('Sollte mit Beispielen generiert werden', () => {
+    it('Sollte mit Beispielen generiert werden', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.columnType = 'three';
 
@@ -247,6 +256,7 @@ describe('lux-formular', () => {
             '<lux-radio luxLabel="LuxRadioComponent" luxControlBinding="radio2" [luxOrientationVertical]="false" [luxOptions]="radioOptions" *luxLayoutRowItem="{}">'
           );
           expect(htmlContent.trim()).toContain('</form>');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );

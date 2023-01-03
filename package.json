@@ -1,6 +1,6 @@
 {
   "name": "@ihk-gfi/lux-components-generate",
-  "version": "13.0.0",
+  "version": "14.0.0",
   "description": "Schematics für die Generierung von LUX-Components und formatierten Layouts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -30,17 +30,16 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "13.3.4",
-    "@angular-devkit/schematics": "13.3.4",
-    "@schematics/angular": "13.3.4",
+    "@angular-devkit/core": "14.2.6",
+    "@angular-devkit/schematics": "14.2.6",
+    "@schematics/angular": "14.2.6",
     "@types/jasmine": "4.0.3",
-    "@types/node": "16.11.33",
+    "@types/node": "16.11.34",
     "jasmine": "4.1.0",
     "jsonc-parser": "3.0.0",
-    "typescript": "4.5.5",
-    "rxjs": "7.5.5"
+    "typescript": "4.7.3"
   },
   "devDependencies": {
-    "prettier": "2.5.1"
+    "prettier": "2.6.2"
   }
 }

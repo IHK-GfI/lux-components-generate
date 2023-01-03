@@ -1,3 +1,7 @@
+## Version 14.0.0
+- Update auf Angular 14.
+- Aktivierung des strict-Modus.
+
 ## Version 13.0.0
 - Update auf Angular 13.
 

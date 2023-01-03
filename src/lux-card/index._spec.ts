@@ -2,7 +2,6 @@ import { callRule } from '@angular-devkit/schematics';
 import * as path from 'path';
 import { TestHelper } from '../utility/test-helper';
 import { luxCard } from './index';
-import { of as observableOf } from 'rxjs';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
@@ -25,37 +24,43 @@ describe('lux-card', () => {
   });
 
   describe('schema.createTests', () => {
-    it('Sollte .spec.ts generieren (true)', () => {
+    it('Sollte .spec.ts generieren (true)', (done) => {
       testHelper.testSpecTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte .spec.ts generieren (false)', () => {
+    it('Sollte .spec.ts generieren (false)', (done) => {
       testHelper.testSpecFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.createStylesheet', () => {
-    it('Sollte .scss generieren (true)', () => {
+    it('Sollte .scss generieren (true)', (done) => {
       testHelper.testScssTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte .scss generieren (false)', () => {
+    it('Sollte .scss generieren (false)', (done) => {
       testHelper.testScssFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.importToNgModule', () => {
-    it('Sollte den Import in das Module einfügen (true)', () => {
+    it('Sollte den Import in das Module einfügen (true)', (done) => {
       testHelper.testImportTrue(schematicsFunction, defaultOptions);
+      done();
     });
 
-    it('Sollte den Import in das Module einfügen (false)', () => {
+    it('Sollte den Import in das Module einfügen (false)', (done) => {
       testHelper.testImportFalse(schematicsFunction, defaultOptions);
+      done();
     });
   });
 
   describe('schema.typeOfCard', () => {
-    it('Sollte eine simple Card generieren', () => {
+    it('Sollte eine simple Card generieren', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.typeOfCard = 'simple';
 
@@ -68,12 +73,13 @@ describe('lux-card', () => {
           expect(htmlContent).toContain('</lux-card-info>');
 
           expect(htmlContent).not.toContain('<lux-card-content-expanded>');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
     });
 
-    it('Sollte eine Card mit erweiterten Inhalt generieren', () => {
+    it('Sollte eine Card mit erweiterten Inhalt generieren', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.typeOfCard = 'expended';
 
@@ -86,6 +92,7 @@ describe('lux-card', () => {
           expect(htmlContent).toContain('</lux-card-content-expanded>');
 
           expect(htmlContent).not.toContain('<lux-card-info>');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
@@ -93,7 +100,7 @@ describe('lux-card', () => {
   });
 
   describe('schema.createCardActions', () => {
-    it('Sollte eine Card mit einem Aktions-Bereich generieren', () => {
+    it('Sollte eine Card mit einem Aktions-Bereich generieren', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.createCardActions = true;
 
@@ -105,12 +112,13 @@ describe('lux-card', () => {
             '<lux-button luxLabel="Button" [luxRaised]="true" luxColor="warn" (luxClicked)="onButtonClicked()"></lux-button>'
           );
           expect(htmlContent).toContain('</lux-card-actions>');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
     });
 
-    it('Sollte eine Card ohne einem Aktions-Bereich generieren', () => {
+    it('Sollte eine Card ohne einem Aktions-Bereich generieren', (done) => {
       const testOptions = { ...defaultOptions };
       testOptions.createCardActions = false;
 
@@ -122,6 +130,7 @@ describe('lux-card', () => {
             '<lux-button luxLabel="Button" [luxRaised]="true" luxColor="warn" (luxClicked)="onButtonClicked()"></lux-button>'
           );
           expect(htmlContent).not.toContain('</lux-card-actions>');
+          done();
         },
         (reason) => expect(reason).toBeUndefined()
       );
