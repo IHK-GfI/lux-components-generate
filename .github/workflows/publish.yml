@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 16
       - run: npm install
-      - run: npm run test
+      - run: npm run smoketest
 
   publish-npm:
     needs: build
