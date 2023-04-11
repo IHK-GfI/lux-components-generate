@@ -14,6 +14,7 @@
 .classpath
 .c9/
 *.launch
+*.iml
 .settings/
 *.sublime-workspace
 workspace.xml
@@ -51,6 +52,4 @@ documentation/
 src/**/*.js
 src/**/*.js.map
 src/**/*.d.ts
-lux-components-update.iml
-lux-components-generate.iml
 package-lock.json

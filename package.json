@@ -1,18 +1,18 @@
 {
   "name": "@ihk-gfi/lux-components-generate",
-  "version": "14.0.0",
-  "description": "Schematics für die Generierung von LUX-Components und formatierten Layouts",
+  "version": "15.0.0",
+  "description": "Schematics für die Generierung von LUX-Components",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "husky-init": "husky install",
     "security": "npm audit --registry=https://registry.npmjs.org --audit-level high",
-    "smoketest": "npm run build && jasmine src/**/*_spec.js",
+    "smoketest": "npm run build && npm run test",
     "test": "jasmine src/**/*_spec.js"
   },
   "keywords": [
     "schematics",
     "lux-components",
-    "blueprint"
+    "jast"
   ],
   "license": "IHK-GfI Open-Source-Lizenz",
   "files": [
@@ -32,18 +32,18 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "14.2.6",
-    "@angular-devkit/schematics": "14.2.6",
-    "@schematics/angular": "14.2.6",
-    "@types/jasmine": "4.0.3",
-    "@types/node": "16.11.34",
-    "jasmine": "4.1.0",
-    "jsonc-parser": "3.0.0",
-    "typescript": "4.7.3"
+    "@angular-devkit/core": "15.2.5",
+    "@angular-devkit/schematics": "15.2.5",
+    "@schematics/angular": "15.2.5",
+    "@types/node": "16.11.7",
+    "jsonc-parser": "3.2.0",
+    "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@types/jasmine": "4.3.1",
     "husky": "8.0.3",
-    "prettier": "2.6.2",
+    "jasmine": "4.6.0",
+    "prettier": "2.8.3",
     "pretty-quick": "3.1.3"
   }
 }
