@@ -10,7 +10,7 @@ import { Component<% if (asyncData == false) { %>, OnInit<% } %> } from '@angula
 export class <%= classify(name) %>Component <% if (asyncData == false) { %>implements OnInit <% } %>{
 
 <% if (asyncData == true) { %>
-  httpDAO = null;
+  httpDAO;
 <% } else { %>
   dataSource: any[] = [];
 <% } %>
@@ -44,7 +44,7 @@ export class <%= classify(name) %>Component <% if (asyncData == false) { %>imple
   }<% } %>
 
   <% if (multiSelect == true) { %>
-    onSelectedChange($event) {
+    onSelectedChange($event: any) {
       console.log($event);
     }
     <% } %>

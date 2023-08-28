@@ -66,10 +66,10 @@ describe('lux-master-detail', () => {
       callRule(luxMasterDetail(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
-          expect(tsContent.trim()).not.toContain('changeFilter($event) {');
+          expect(tsContent.trim()).not.toContain('changeFilter($event: any) {');
 
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
-          expect(htmlContent.trim()).toContain('<h2>Master Header</h2>');
+          expect(htmlContent.trim()).toContain('<lux-card luxTitle="Master Header"></lux-card>');
           done();
         },
         (reason) => expect(reason).toBeUndefined()
@@ -84,12 +84,12 @@ describe('lux-master-detail', () => {
         () => {
           const htmlContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.html`);
           expect(htmlContent.trim()).toContain(
-            '<lux-select luxLabel="Ein Filter" [luxOptions]="options" [luxSelected]="options[0]"'
+            '<lux-select-ac luxLabel="Ein Filter" [luxOptions]="options" [luxSelected]="options[0]"'
           );
           expect(htmlContent.trim()).toContain(
             'luxOptionLabelProp="label" (luxSelectedChange)="changeFilter($event)">'
           );
-          expect(htmlContent.trim()).toContain('</lux-select>');
+          expect(htmlContent.trim()).toContain('</lux-select-ac>');
 
           const tsContent = testHelper.appTree.readContent(`/projects/bar/src/app/test/test.component.ts`);
           expect(tsContent.trim()).toContain('options = [');
@@ -99,7 +99,7 @@ describe('lux-master-detail', () => {
           expect(tsContent.trim()).toContain("{value: 'C',  label: 'Filter C'},");
           expect(tsContent.trim()).toContain(']');
 
-          expect(tsContent.trim()).toContain('changeFilter($event) {');
+          expect(tsContent.trim()).toContain('changeFilter($event: any) {');
           expect(tsContent.trim()).toContain("console.log('Filter ausgewählt', $event);");
           expect(tsContent.trim()).toContain('}');
           done();

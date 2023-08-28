@@ -1,4 +1,4 @@
-<lux-list luxEmptyIconName="fas fa-info-circle" luxEmptyIconSize="5x" luxEmptyLabel="Keine Einträge vorhanden!">
+<lux-list luxEmptyIconName="lux-interface-alert-information-circle" luxEmptyIconSize="5x" luxEmptyLabel="Keine Einträge vorhanden!">
   <ng-container *ngFor="let item of listItems">
     <lux-list-item [luxTitle]="item.title" [luxSubTitle]="item.subTitle" [luxSelected]="item.selected" (luxClicked)="click(item)">
       <lux-list-item-icon>

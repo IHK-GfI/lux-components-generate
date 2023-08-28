@@ -132,10 +132,10 @@ describe('lux-table', () => {
       callRule(luxTable(testOptions), testHelper.appTree, testHelper.context).subscribe(
         () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
-          expect(htmlContent).not.toContain('[luxMultiSelect]="true" (luxSelectedChange)="onSelectedChange($event)"');
+          expect(htmlContent).not.toContain('[luxMultiSelect]="true" (luxSelectedChange)="onSelectedChange($event: any)"');
 
           const tsContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.ts');
-          expect(tsContent).not.toContain('onSelectedChange($event) {');
+          expect(tsContent).not.toContain('onSelectedChange($event: any) {');
           done();
         },
         (reason) => expect(reason).toBeUndefined()
@@ -152,7 +152,7 @@ describe('lux-table', () => {
           expect(htmlContent).toContain('[luxMultiSelect]="true" (luxSelectedChange)="onSelectedChange($event)"');
 
           const tsContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.ts');
-          expect(tsContent).toContain('onSelectedChange($event) {');
+          expect(tsContent).toContain('onSelectedChange($event: any) {');
           done();
         },
         (reason) => expect(reason).toBeUndefined()
@@ -210,7 +210,7 @@ describe('lux-table', () => {
 
           const tsContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.ts');
           expect(tsContent).not.toContain("import { TestHttpDao } from './test-http-dao';");
-          expect(tsContent).not.toContain('httpDAO = null;');
+          expect(tsContent).not.toContain('httpDAO;');
           expect(tsContent).not.toContain('this.httpDAO = new TestHttpDao();');
 
           expect(testHelper.appTree.files).not.toContain('/projects/bar/src/app/test/test-http-dao.ts');
@@ -231,7 +231,7 @@ describe('lux-table', () => {
 
           const tsContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.ts');
           expect(tsContent).toContain("import { TestHttpDao } from './test-http-dao';");
-          expect(tsContent).toContain('httpDAO = null;');
+          expect(tsContent).toContain('httpDAO;');
           expect(tsContent).toContain('this.httpDAO = new TestHttpDao();');
 
           expect(testHelper.appTree.files).toContain('/projects/bar/src/app/test/test-http-dao.ts');

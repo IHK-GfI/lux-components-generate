@@ -1,3 +1,9 @@
+# Changelog
+
+## Version 15.0.1
+
+- **allgemein**: Umstellung auf die AC-Komponenten inklusive LUX-Icons unvollständig. [Issue 2](https://github.com/IHK-GfI/lux-components-generate/issues/2)
+
 ## Version 15.0.0
 
 - Update auf Angular 15.

@@ -27,14 +27,14 @@ export class <%= classify(name) %>Component <% if (navigationType == "outside") 
      
   stepperFinishButtonConfig: ILuxStepperButtonConfig = {
     label: 'Speichern',
-    iconName: 'fa-save',
+    iconName: 'lux-save',
     color   : 'primary'
   };
 <% } else { %>
     btnPrev = LuxAppFooterButtonInfo.generateInfo({
       label: 'Zurück',
       cmd: 'previous',
-      color: '',
+      color: undefined,
       alwaysVisible: false,
       hidden: true,
       onClick: () => this.stepperService.previousStep()

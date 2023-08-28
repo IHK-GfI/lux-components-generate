@@ -68,13 +68,13 @@ describe('lux-tabs', () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
 
           expect(htmlContent.trim()).not.toContain(
-            '<lux-tab luxTitle="Title #text" luxIconName="fas fa-toolbox" [luxCounter]="10" [luxCounterCap]="20"'
+            '<lux-tab luxTitle="Title #text" luxIconName="lux-interface-setting-tool-box" [luxCounter]="10" [luxCounterCap]="20"'
           );
           expect(htmlContent.trim()).not.toContain(
-            '<lux-tab luxTitle="Title #card" luxIconName="fas fa-toolbox" [luxCounter]="10" [luxCounterCap]="20"'
+            '<lux-tab luxTitle="Title #card" luxIconName="lux-interface-setting-tool-box" [luxCounter]="10" [luxCounterCap]="20"'
           );
           expect(htmlContent.trim()).not.toContain(
-            '<lux-tab luxTitle="Title #form" luxIconName="fas fa-toolbox" [luxCounter]="10" [luxCounterCap]="20"'
+            '<lux-tab luxTitle="Title #form" luxIconName="lux-interface-setting-tool-box" [luxCounter]="10" [luxCounterCap]="20"'
           );
 
           done();
@@ -92,13 +92,13 @@ describe('lux-tabs', () => {
           const htmlContent = testHelper.appTree.readContent('/projects/bar/src/app/test/test.component.html');
 
           expect(htmlContent.trim()).toContain(
-            '<lux-tab luxTitle="Title #text" luxIconName="fas fa-toolbox" [luxCounter]="10" [luxCounterCap]="20"'
+            '<lux-tab luxTitle="Title #text" luxIconName="lux-interface-setting-tool-box" [luxCounter]="10" [luxCounterCap]="20"'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-tab luxTitle="Title #card" luxIconName="fas fa-toolbox" [luxCounter]="10" [luxCounterCap]="20"'
+            '<lux-tab luxTitle="Title #card" luxIconName="lux-interface-setting-tool-box" [luxCounter]="10" [luxCounterCap]="20"'
           );
           expect(htmlContent.trim()).toContain(
-            '<lux-tab luxTitle="Title #form" luxIconName="fas fa-toolbox" [luxCounter]="10" [luxCounterCap]="20"'
+            '<lux-tab luxTitle="Title #form" luxIconName="lux-interface-setting-tool-box" [luxCounter]="10" [luxCounterCap]="20"'
           );
 
           done();

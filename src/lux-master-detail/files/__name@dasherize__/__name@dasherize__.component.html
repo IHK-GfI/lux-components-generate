@@ -1,8 +1,8 @@
-<lux-master-detail
-  luxEmptyIconMaster="fas fa-times"
+<lux-master-detail-ac
+  luxEmptyIconMaster="lux-interface-delete-1"
   luxEmptyIconMasterSize="5x"
   luxEmptyLabelMaster="Keine Masterelemente gefunden!"
-  luxEmptyIconDetail="fas fa-times"
+  luxEmptyIconDetail="lux-interface-delete-1"
   luxEmptyIconDetailSize="5x"
   luxEmptyLabelDetail="Kein Detail selektiert!"
   [luxMasterIsLoading]="masterIsLoading"
@@ -14,15 +14,20 @@
   luxTagIdDetail="detailTagId" 
   fxFill>
 
-  <lux-master-header-content>
+  <lux-master-header-content-ac>
+    
 <% if (createWithFilter == true) { %>
-    <lux-select luxLabel="Ein Filter" [luxOptions]="options" [luxSelected]="options[0]" luxOptionLabelProp="label" (luxSelectedChange)="changeFilter($event)"></lux-select>
+    <lux-card luxTitle="Master Header">
+      <lux-card-content>
+        <lux-select-ac luxLabel="Ein Filter" [luxOptions]="options" [luxSelected]="options[0]" luxOptionLabelProp="label" (luxSelectedChange)="changeFilter($event)"></lux-select-ac>
+      </lux-card-content>
+    </lux-card>
 <% } else { %>
-    <h2>Master Header</h2>
+  <lux-card luxTitle="Master Header"></lux-card>
 <% } %>
-  </lux-master-header-content>
+  </lux-master-header-content-ac>
 
-  <lux-master-simple luxTitleProp="title" luxSubTitleProp="subtitle">
+  <lux-master-list-ac luxTitleProp="title" luxSubTitleProp="subtitle">
     <!-- Zugriff auf jedes einzelne Master-Element ueber "master" -->
     <ng-template #luxSimpleIcon let-master>
       <lux-icon [luxIconName]="master.icon"></lux-icon>
@@ -30,9 +35,9 @@
     <ng-template #luxSimpleContent let-master>
       {{ master.content }}
     </ng-template>
-  </lux-master-simple>
+  </lux-master-list-ac>
 
-  <lux-detail-view>
+  <lux-detail-view-ac>
     <!-- Zugriff auf das aktuell selektierte Element ueber "detail" -->
     <ng-template let-detail>
       <lux-card [luxTitle]="detail.title">
@@ -41,10 +46,10 @@
         </lux-card-content>
       </lux-card>
     </ng-template>
-  </lux-detail-view>
+  </lux-detail-view-ac>
 
-  <lux-master-footer>
+  <lux-master-footer-ac>
     <h2>Master Footer</h2>
-  </lux-master-footer>
+  </lux-master-footer-ac>
 
-</lux-master-detail>
+</lux-master-detail-ac>

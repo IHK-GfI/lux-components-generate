@@ -19,7 +19,7 @@ export class <%= classify(name) %>Component {
       this.listItems.push({
         title: `Item #${i + 1}`,
         subTitle: `Untertitel Item #${i + 1}`,
-        iconName: 'fas fa-user',
+        iconName: 'lux-interface-user-single',
         selected: false,
         value: 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore ' +
                'magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea' +

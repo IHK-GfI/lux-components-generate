@@ -2,6 +2,8 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserTestingModule } from '@angular/platform-browser/testing';
 import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
+import { LuxFormModule, LuxLayoutModule } from '@ihk-gfi/lux-components';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('<%= classify(name) %>Component', () => {
   let component: <%= classify(name) %>Component;
@@ -13,7 +15,10 @@ describe('<%= classify(name) %>Component', () => {
       imports: [
         BrowserTestingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        LuxLayoutModule,
+        LuxFormModule
       ]
     })
     .compileComponents();

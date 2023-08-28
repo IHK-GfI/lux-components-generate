@@ -39,7 +39,7 @@ export class <%= classify(name) %>Component {
         id: this.masterItems.length,
         title: 'Eintrag #' + this.masterItems.length,
         subtitle: `Alle Informationen unter https://www.ihk-gfi.de`,
-        icon: 'fa fa-cog',
+        icon: 'lux-interface-setting-cog',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor inviduntutlaboreetdolore magna' +
                  'aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.'
       });
@@ -47,7 +47,7 @@ export class <%= classify(name) %>Component {
   }
 
 <% if (createWithFilter == true) { %>  
-  changeFilter($event) {
+  changeFilter($event: any) {
     console.log('Filter ausgewählt', $event);
   }
 <% } %>
