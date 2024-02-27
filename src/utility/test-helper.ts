@@ -41,11 +41,9 @@ export class TestHelper {
     this.runner = new SchematicTestRunner('schematics', collectionPath);
 
     this.appTree = await this.runner
-      .runExternalSchematicAsync('@schematics/angular', 'workspace', workspaceOptions)
-      .toPromise();
+      .runExternalSchematic('@schematics/angular', 'workspace', workspaceOptions);
     this.appTree = await this.runner
-      .runExternalSchematicAsync('@schematics/angular', 'application', appOptions, this.appTree)
-      .toPromise();
+      .runExternalSchematic('@schematics/angular', 'application', appOptions, this.appTree);
 
     const collection = this.runner.engine.createCollection(collectionPath);
     const schematic = this.runner.engine.createSchematic(schematicName, collection);

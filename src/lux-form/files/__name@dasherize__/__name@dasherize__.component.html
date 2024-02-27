@@ -1,9 +1,8 @@
-<lux-layout>
-    <lux-layout-card-row>
+    <div class="lux-flex lux-gap-4">
         <lux-card <% if (columnType =="single") { %>luxTitle="Einspaltiges Formular"<% } %><% if (columnType =="dual") { %>luxTitle="Zweispaltiges Formular"<% } %><% if (columnType =="three") { %>luxTitle="Dreispaltiges Formular"<% } %> *luxLayoutRowItem="{}">
             <lux-card-content>
                 <form [formGroup]="form">
-                    <lux-layout>
+                    <div>
                         <% if (columnType == "single") { %>
                             <% generateFormControls(1); %>
                         <% } %>
@@ -15,16 +14,15 @@
                         <% if (columnType == "three") { %>
                             <% generateFormControls(3); %>
                         <% } %>
-                    </lux-layout>
+                    </div>
                 </form>
             </lux-card-content>
         </lux-card>
-    </lux-layout-card-row>
-</lux-layout>
+    </div>
 
 <% function generateFormControls(rowItemCount) { %>
     <% for(let i = 0; i < formControls.length; i++) { %>
-        <lux-layout-form-row>
+        <div class="lux-flex lux-gap-4">
             <% for(let j = 0; j < rowItemCount; j++) { %>
                 <% if (formControls[i] == "input") { %>
                 <lux-input-ac luxLabel="LuxInputComponent" luxControlBinding="input<%= j %>" *luxLayoutRowItem="{}"></lux-input-ac>
@@ -55,6 +53,6 @@
                 <lux-datepicker-ac luxLabel="LuxDatepickerComponent" luxControlBinding="datepicker<%= j %>" *luxLayoutRowItem="{}"></lux-datepicker-ac>
                 <% } %>
             <% } %>
-            </lux-layout-form-row>
+        </div>
      <% } %>
 <% } %>
