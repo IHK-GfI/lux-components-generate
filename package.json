@@ -1,6 +1,6 @@
 {
   "name": "@ihk-gfi/lux-components-generate",
-  "version": "15.0.1",
+  "version": "16.0.0",
   "description": "Schematics für die Generierung von LUX-Components",
   "scripts": {
     "build": "tsc -p tsconfig.json",
