@@ -36,6 +36,7 @@ testem.log
 /typings
 bash.exe.stackdump
 package-lock.json
+/ihk-gfi-lux-comp*.tgz
 
 # e2e
 /e2e/*.js

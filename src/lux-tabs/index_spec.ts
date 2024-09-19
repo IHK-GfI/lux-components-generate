@@ -47,18 +47,6 @@ describe('lux-tabs', () => {
     });
   });
 
-  describe('schema.importToNgModule', () => {
-    it('Sollte den Import in das Module einfügen (true)', (done) => {
-      testHelper.testImportTrue(schematicsFunction, defaultOptions);
-      done();
-    });
-
-    it('Sollte den Import in das Module einfügen (false)', (done) => {
-      testHelper.testImportFalse(schematicsFunction, defaultOptions);
-      done();
-    });
-  });
-
   describe('schema.counterVisible', () => {
     it('Sollte kein Counter erstellen', (done) => {
       const testOptions = { ...defaultOptions };

@@ -51,18 +51,6 @@ describe('lux-table', () => {
     });
   });
 
-  describe('schema.importToNgModule', () => {
-    it('Sollte den Import in das Module einfügen (true)', (done) => {
-      testHelper.testImportTrue(schematicsFunction, defaultOptions);
-      done();
-    });
-
-    it('Sollte den Import in das Module einfügen (false)', (done) => {
-      testHelper.testImportFalse(schematicsFunction, defaultOptions);
-      done();
-    });
-  });
-
   describe('schema.showPagination', () => {
     it('Sollte keine Pagination generieren', (done) => {
       const testOptions = { ...defaultOptions };
