@@ -46,18 +46,6 @@ describe('lux-accordion', () => {
     });
   });
 
-  describe('schema.importToNgModule', () => {
-    it('Sollte den Import in das Module einfügen (true)', (done) => {
-      testHelper.testImportTrue(schematicsFunction, defaultOptions);
-      done();
-    });
-
-    it('Sollte den Import in das Module einfügen (false)', (done) => {
-      testHelper.testImportFalse(schematicsFunction, defaultOptions);
-      done();
-    });
-  });
-
   describe('schema.soloPanel', () => {
     it('Sollte ein Panel mit Accordion generieren', (done) => {
       const testOptions = { ...defaultOptions };

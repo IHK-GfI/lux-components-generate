@@ -1,6 +1,6 @@
 {
   "name": "@ihk-gfi/lux-components-generate",
-  "version": "16.0.0",
+  "version": "18.0.0-alpha",
   "description": "Schematics für die Generierung von LUX-Components",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -32,18 +32,18 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "^16.2.12",
-    "@angular-devkit/schematics": "^16.2.12",
-    "@schematics/angular": "^16.2.12",
-    "@types/jasmine": "^5.1.4",
+    "@angular-devkit/core": "^18.2.4",
+    "@angular-devkit/schematics": "^18.2.4",
+    "@schematics/angular": "^18.2.4",
     "@types/node": "^18.11.9",
     "jsonc-parser": "^3.2.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "husky": "^9.0.11",
-    "jasmine": "4.6.0",
-    "prettier": "^3.2.5",
+    "@types/jasmine": "^5.1.4",
+    "husky": "^9.1.6",
+    "jasmine": "~5.1.0",
+    "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0"
   }
 }

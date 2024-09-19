@@ -47,18 +47,6 @@ describe('lux-card', () => {
     });
   });
 
-  describe('schema.importToNgModule', () => {
-    it('Sollte den Import in das Module einfügen (true)', (done) => {
-      testHelper.testImportTrue(schematicsFunction, defaultOptions);
-      done();
-    });
-
-    it('Sollte den Import in das Module einfügen (false)', (done) => {
-      testHelper.testImportFalse(schematicsFunction, defaultOptions);
-      done();
-    });
-  });
-
   describe('schema.typeOfCard', () => {
     it('Sollte eine simple Card generieren', (done) => {
       const testOptions = { ...defaultOptions };

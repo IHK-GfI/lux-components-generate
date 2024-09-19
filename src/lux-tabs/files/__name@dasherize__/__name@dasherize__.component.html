@@ -1,4 +1,4 @@
-<lux-tabs luxIconSize="2x" [luxLazyLoading]="true" [luxTabAnimationActive]="false" (luxActiveTabChanged)="activeTabChanged($event)">
+<lux-tabs luxIconSize="2x" [luxLazyLoading]="true" (luxActiveTabChanged)="activeTabChanged($event)">
 <% for(let entry of otherSchematics) { %>
   <lux-tab luxTitle="Title #<%= entry %>" luxIconName="lux-interface-setting-tool-box" <% if (counterVisible == true) { %>[luxCounter]="10" [luxCounterCap]="20"<% } %>
            luxTagIdHeader="Title #<%= entry %>-Header" luxTagIdContent="Title #<%= entry %>-Content">

@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 18.0.0
+
+- Update auf Angular 18.
+
 ## Version 16.0.0
 
 - Update auf Angular 16.

@@ -27,7 +27,7 @@ npm install @ihk-gfi/lux-components-generate@latest --save-dev
 Spezielle Version installieren:
 
 ```bash
-npm install --save @ihk-gfi/lux-components-generate@16
+npm install --save @ihk-gfi/lux-components-generate@18
 ```
 
 ## Ausführen eines Schematic-Scripts
